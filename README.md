@@ -63,6 +63,9 @@
    
 ## CRONOGRAMA
 
+![CRONOGRAMA](https://github.com/erikaleonq/PicoCASH-REGISTER/assets/80012475/5f1a484c-5438-43e7-b353-934e1247d58d)
+
+
 ## DIAGRAMA DE FLUJO 
 
  ![diagramaDeFlujo](https://github.com/erikaleonq/PicoCASH-REGISTER/assets/80007851/3a40b7e9-eda6-4382-ad0d-62a01c5a5b67)
