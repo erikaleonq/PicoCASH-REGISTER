@@ -130,35 +130,11 @@ int main() {
   rc522_init();
 
   while (1) {
-    /*
-     Check for the presence of an RFID tag
-    if (rc522_check_tag()) {
-      printf("Tag detected\n");
-       Read the first block of the RFID card
-    */
+  
       uint8_t *block_data = rc522_read_block(40);
       printf("Resultado block data: %02X\n", block_data);
 
-      /*
-      uint8_t uid[5];
-      rc522_get_uid(uid);
-      printf(uid);
-      printf("\n");
-
-      if (block_data != NULL) {
-         Print the block data to the console
-        for (int i = 0; i < 16; i++) {
-          printf("%02X", block_data[i]);
-        }
-        printf("\n");
-         Free the allocated memory
-        free(block_data);
-      }
-    } else {
-      printf("Tag not detected\n");
-    }
-
-      */
+      
     sleep_ms(1000);  // Wait for 1 second
   }
 
