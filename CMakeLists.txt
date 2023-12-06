@@ -17,6 +17,14 @@ add_executable(PICOCASH
 # pico_stdlib library. You can add more if they are needed
 target_link_libraries(PICOCASH pico_stdlib)
 
+
+target_link_libraries(PICOCASH pico_stdlib hardware_gpio)
+
+target_link_libraries(PICOCASH pico_stdlib hardware_uart)
+
+target_link_libraries(PICOCASH pico_stdlib hardware_spi)
+
+
 # Enable usb output, disable uart output
 pico_enable_stdio_usb(PICOCASH 1)
 pico_enable_stdio_uart(PICOCASH 0)
