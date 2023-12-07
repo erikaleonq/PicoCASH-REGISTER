@@ -6,12 +6,11 @@
 #include <string.h>
 
 // Define GPIO pins for RC522 module
-#define RC522_RST_PIN 12
-#define RC522_SDA_PIN 14
-#define RC522_SCK_PIN 15
-#define RC522_MOSI_PIN 16
-#define RC522_MISO_PIN 17
-
+#define RC522_RST_PIN 0
+#define RC522_SDA_PIN 1
+#define RC522_SCK_PIN 2
+#define RC522_MOSI_PIN 3
+#define RC522_MISO_PIN 4
 // SPI configuration
 typedef struct spi_inst spi_inst_t;
 #define spi0 ((spi_inst_t *)spi0_hw)
