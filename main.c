@@ -5,28 +5,21 @@
  * Detailed description of the main C file.
  */
 
-#include <stdio.h>
-#include <string.h>
-#include "pico/stdlib.h"
-#include "keyboard.h"
-
-
-#define NUM_FILAS 5
-#define NUM_COLUMNAS 4
-char lastKey;
+#include "main.h"
 
 
 int main() {
     stdio_init_all();
-
-    // Dormir durante 5000 milisegundos (5 segundos) antes de iniciar
-    sleep_ms(5000);
-    // Imprimir un saludo después de la espera
-    printf("¡Hola!");
-
     initKeyboard();
-
+    char key;
+    bool *newKey;
     while (1) {
+        newKey = newKeyPressed();
+        if(*newKey) {
+            key = getKey();
+            printf("%c \n", key);
+            *newKey = false;
+        }
         // Entrar en modo de espera hasta la próxima interrupción
         __wfi();
     }

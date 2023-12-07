@@ -3,8 +3,10 @@
 volatile uint8_t gKeyCnt = 0; // Contador global de teclas ingresadas
 volatile uint8_t gSeqCnt = 0; // Contador global de secuencia
 volatile bool gDZero = false; // Bandera para debouncer
+bool newKey = false;
+volatile char tecla;
 
-char keymap[5][4] = { //NUM_FILAS][NUM_COLUMNAS] = {
+char keymap[NUM_FILAS][NUM_COLUMNAS] = { //[NUM_FILAS][NUM_COLUMNAS] = {
     {'F', 'f', '#', '*'},  //F -> F1, //f -> F2
     {'1', '2', '3', 'U'},
     {'4', '5', '6', 'D'},
@@ -32,22 +34,22 @@ void keyboardCallback(uint num, uint32_t mask) {
     // Obtener datos de teclado (bits 2-9) y decodificar la tecla
     uint32_t keyData = gpio_get_all() & 0x000001FF;
     
-    // Calcular el logaritmo en base 2
-    int col = log2(keyData & 0xF);
+    // Calcular el logaritmo en base 2 para obtener el índice en donde se encuentra el uno
+    int col = log2(keyData & 0xF); 
     int fil = 4 - log2((keyData >> 4) & 0x1F);
-    printf("%c \n", keymap[fil][col]);
+    tecla = keymap[fil][col];
+    newKey = true;
+    //printf("%c \n", keymap[fil][col]);
 
     // Incrementar el contador de teclas ingresadas
-    gKeyCnt++;
+    //gKeyCnt++;
 
-    // Confirmar la interrupción de GPIO
+    // Confirmar la interrupción de GPIO, borra la bandera de interrupción después de procesarla
     gpio_acknowledge_irq(num, mask);
-    // ... (se omite el comentario original)
 }
 
 /// @brief Función de devolución de llamada para la interrupción de PWM
 void pwmIRQ(void) {
-    uint32_t gpioValue;
     uint32_t keyc;
 
     // Determinar qué slice de PWM generó la interrupción
@@ -65,10 +67,10 @@ void pwmIRQ(void) {
             keyc = gpio_get_all() & 0x0000000F; // Obtener los valores brutos de los GPIO
             if (gDZero) {
                 if (!keyc) {
-                    // Congelar la secuencia de filas
-                    pwm_set_enabled(0, true);
-                    // Deshabilitar las interrupciones de GPIO para las filas
-                    pwm_set_enabled(1, false);
+                    pwm_set_enabled(0, true); //Se reactiva la secuencia de escritura de las filas
+                    pwm_set_enabled(1, false); //Se desactiva el debouncer
+                    
+                    //Se activan de nuevo las interrupciones de GPIO en las columnas.
                     gpio_set_irq_enabled(0, GPIO_IRQ_EDGE_RISE, true);
                     gpio_set_irq_enabled(1, GPIO_IRQ_EDGE_RISE, true);
                     gpio_set_irq_enabled(2, GPIO_IRQ_EDGE_RISE, true);
@@ -124,7 +126,7 @@ void initPWMasPIT(uint8_t slice, uint16_t milis, bool enable) {
 
 
 /// @brief Inicializa una matriz de teclado 4x4.
-void initMatrixKeyboard4x4(void) {
+void initMatrixKeyboard5x4(void) { 
     // Configuración de los GPIO para las filas de la matriz (secuencia one hot)
     // Los GPIOs 8 a 4 controlan las filas del teclado
     gpio_set_function(4, GPIO_FUNC_SIO);
@@ -140,9 +142,9 @@ void initMatrixKeyboard4x4(void) {
     gpio_set_function(2, GPIO_FUNC_SIO);
     gpio_set_function(3, GPIO_FUNC_SIO);
 
-    // Establecer la dirección de los GPIOs 6 a 9 como entradas (columnas)
+    // Establecer la dirección de los GPIOs 0 a 3 como entradas (columnas)
     gpio_set_dir_in_masked(0x0000000F);
-    // Establecer la dirección de los GPIOs 2 a 5 como salidas (filas)
+    // Establecer la dirección de los GPIOs 4 a 8 como salidas (filas)
     gpio_set_dir_out_masked(0x000001F0);
     // Escribir 0 en las filas
     gpio_put_masked(0x000001F0, 0);
@@ -156,14 +158,22 @@ void initMatrixKeyboard4x4(void) {
 
 void initKeyboard() {
     // Inicializar PWM como PIT para controlar las secuencias de tiempo
-    initPWMasPIT(0, 2, true);
+    initPWMasPIT(0, 2, true);           //initPWMasPIT(slice, periodo, enable)
     initPWMasPIT(1, 50, false);
 
-       // Configurar el controlador de interrupción exclusivo para la interrupción PWM
+    // Configurar el controlador de interrupción exclusivo para la interrupción PWM
     irq_set_exclusive_handler(PWM_IRQ_WRAP, pwmIRQ);
     // Establecer la prioridad de la interrupción PWM
     irq_set_priority(PWM_IRQ_WRAP, 0xC0);
 
-    // Inicializar la matriz del teclado 4x4
-    initMatrixKeyboard4x4();
+    // Inicializar la matriz del teclado 5x4
+    initMatrixKeyboard5x4();
+}
+
+bool *newKeyPressed() {
+    return &newKey;
+}
+
+char getKey() {
+    return tecla;
 }
