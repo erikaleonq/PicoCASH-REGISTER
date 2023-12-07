@@ -12,10 +12,20 @@ pico_sdk_init()
 # C/C++ project files
 add_executable(PICOCASH
     main.c
+    keyboard.c
 )
-
+ 
 # pico_stdlib library. You can add more if they are needed
-target_link_libraries(PICOCASH pico_stdlib)
+target_link_libraries(PICOCASH 
+    pico_stdlib 
+    hardware_timer 
+    hardware_gpio 
+    hardware_pwm 
+    hardware_irq 
+    hardware_sync)
+
+
+target_include_directories(PICOCASH PUBLIC hin/)
 
 # Enable usb output, disable uart output
 pico_enable_stdio_usb(PICOCASH 1)
