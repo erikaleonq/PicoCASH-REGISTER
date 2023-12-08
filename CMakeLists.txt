@@ -13,6 +13,7 @@ pico_sdk_init()
 add_executable(PICOCASH
     main.c
     keyboard.c
+    uservalidation.c
 )
  
 # pico_stdlib library. You can add more if they are needed
