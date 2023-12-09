@@ -11,13 +11,23 @@
 int main() {
     stdio_init_all();
     initKeyboard();
+
     char key;
     bool *newKey;
+    bool isUser = false, isAdmin;
+
     while (1) {
         newKey = newKeyPressed();
         if(*newKey) {
             key = getKey();
-            printf("%c \n", key);
+            if(!isUser) {
+                isUser = isValidUser(key, &isAdmin);
+            } else {
+                if(isAdmin) {
+                    printf("Es admin\n");
+                }
+            }
+            //printf("%c \n", key);
             *newKey = false;
         }
         // Entrar en modo de espera hasta la próxima interrupción
