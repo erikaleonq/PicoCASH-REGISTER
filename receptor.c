@@ -26,15 +26,14 @@ int main() {
             char received_char = uart_getc(UART_ID);
             printf("Recibiste: %c\n", received_char);
 
-            if (received_char == 0x03) {
-                printf("Mensaje recibido: %s\n", received_message);
+            received_message[received_message_length] = received_char;
+            received_message[received_message_length + 1] = '\0';
+            received_message_length++;
+           
+        } else{
+            printf("Mensaje recibido: %s\n", received_message);
                 received_message[0] = '\0';  // Reiniciar el mensaje
                 received_message_length = 0;
-            } else {
-                received_message[received_message_length] = received_char;
-                received_message[received_message_length + 1] = '\0';
-                received_message_length++;
-            }
         }
     }
 
