@@ -14,6 +14,7 @@
 #include <string.h>
 #include "pico/stdlib.h"
 #include "keyboard.h"
+#include "userValidation.h"
 // Write your definitions and other macros here
 
 #endif
