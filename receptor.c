@@ -3,7 +3,7 @@
 #include "hardware/uart.h"
 
 #define UART_ID uart1
-#define BAUD_RATE 9600
+#define BAUD_RATE 1000000
 #define RX_PIN 5
 
 void clear_uart_buffer(uart_inst_t *uart) {
@@ -24,13 +24,14 @@ int main() {
     while (1) {
         if (uart_is_readable(UART_ID)) {
             char received_char = uart_getc(UART_ID);
-            printf("Recibiste: %c\n", received_char);
+            sleep_ms(1);
 
             received_message[received_message_length] = received_char;
             received_message[received_message_length + 1] = '\0';
             received_message_length++;
            
-        } else{
+        } else if( received_message_length > 0)
+        {
             printf("Mensaje recibido: %s\n", received_message);
                 received_message[0] = '\0';  // Reiniciar el mensaje
                 received_message_length = 0;
