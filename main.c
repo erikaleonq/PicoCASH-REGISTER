@@ -15,9 +15,7 @@ int main() {
 
     char key;
     bool *newKey;
-    bool isUser = false, isAdmin, printMenu = true, keyIsNum;
-    int *p;
-    
+    bool isUser = false, isAdmin, printMenu = true, keyIsNum;    
 
     printf("Bienvenido a picoCA$H");
 
@@ -61,17 +59,15 @@ int main() {
                     printf("Es vendedor\n");
                     printMenu = false;
                 }
-
                 if(*newKey) {
                     switch (key)
                     {
                     case 'f':
                         iniciarVenta();
-                        /* code */
                         break;
                     case '#':
-                        //ingresa cedula
-                        /* code */
+                        *newKey = false;
+                        ingresarDocumento();
                         break;
                     
                     default:

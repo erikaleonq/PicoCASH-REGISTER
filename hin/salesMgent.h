@@ -7,8 +7,10 @@
 #include "hardware/sync.h"
 #include "receptor.h"
 #include "keyboard.h"
+#include "userValidation.h"
 
 
 void iniciarVenta();
+void ingresarDocumento();
 
 #endif
