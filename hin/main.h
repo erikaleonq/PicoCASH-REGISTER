@@ -17,6 +17,7 @@
 #include "userValidation.h"
 #include "salesMgent.h"
 #include "receptor.h"
+#include "LCD.h"
 // Write your definitions and other macros here
 
 #endif

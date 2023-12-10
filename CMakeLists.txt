@@ -16,6 +16,7 @@ add_executable(PICOCASH
     uservalidation.c
     salesMgent.c
     receptor.c
+    LCD.c
 )
  
 # pico_stdlib library. You can add more if they are needed

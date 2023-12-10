@@ -12,6 +12,8 @@ int main() {
     stdio_init_all();
     initKeyboard();
     init_uart();
+    LCDInit();
+    LCDconfig();
 
     char key;
     bool *newKey;
