@@ -10,12 +10,14 @@ void clear_uart_buffer(uart_inst_t *uart) {
 }
 
 void init_uart(){
+
     uart_init(UART_ID, BAUD_RATE);
     gpio_set_function(RX_PIN, GPIO_FUNC_UART);
 
 }
 
 void recive_tag(){
+    
      if (uart_is_readable(UART_ID)) {
             char received_char = uart_getc(UART_ID);
             sleep_ms(1);
@@ -27,7 +29,10 @@ void recive_tag(){
         } else if( received_message_length > 0)
         {
             printf("Mensaje recibido: %s\n", received_message);
-                received_message[0] = '\0';  // Reiniciar el mensaje
-                received_message_length = 0;
+            int converted_value = atof(received_message);
+            received_message[0] = '\0';  // Reiniciar el mensaje
+            received_message_length = 0;   
+            printf("El valor convertido a entero: %d\n", converted_value);
+
         }
 }
