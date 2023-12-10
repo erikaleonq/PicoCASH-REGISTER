@@ -15,6 +15,7 @@ add_executable(PICOCASH
     keyboard.c
     uservalidation.c
     salesMgent.c
+    receptor.c
 )
  
 # pico_stdlib library. You can add more if they are needed
@@ -24,18 +25,11 @@ target_link_libraries(PICOCASH
     hardware_gpio 
     hardware_pwm 
     hardware_irq 
-    hardware_sync)
-
+    hardware_sync
+    hardware_uart
+    hardware_spi)
 
 target_include_directories(PICOCASH PUBLIC hin/)
-
-
-target_link_libraries(PICOCASH pico_stdlib hardware_gpio)
-
-target_link_libraries(PICOCASH pico_stdlib hardware_uart)
-
-target_link_libraries(PICOCASH pico_stdlib hardware_spi)
-
 
 # Enable usb output, disable uart output
 pico_enable_stdio_usb(PICOCASH 1)

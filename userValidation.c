@@ -25,7 +25,7 @@ int confirmUser (bool *isAdmin){
         if (resultado == 0 && strlen(password) == LENPWD) {  // verificamos usuario
             resultado = strncmp(usersData[i][1], password, LENPWD);
             if (resultado == 0) {  // verificamos contraseña
-                *isAdmin = (bool)usersData[i][2];
+                *isAdmin = usersData[i][2] == "1";
                 printf("Usuario y contraseña correctos \n");
                 inputUser = true;
                 resetValidation();

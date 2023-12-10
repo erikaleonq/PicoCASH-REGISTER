@@ -11,6 +11,7 @@
 int main() {
     stdio_init_all();
     initKeyboard();
+    init_uart();
 
     char key;
     bool *newKey;
@@ -27,6 +28,7 @@ int main() {
             keyIsNum = ((int)key >= 48 && (int)key <= 57) ? 1 : 0;
 
             if(key == 'F') {
+                printf("");
                 resetValidation();
                 isUser = false;
                 printMenu = true;

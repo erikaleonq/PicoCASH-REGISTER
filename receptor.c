@@ -10,7 +10,6 @@ void clear_uart_buffer(uart_inst_t *uart) {
 }
 
 void init_uart(){
-
     uart_init(UART_ID, BAUD_RATE);
     gpio_set_function(RX_PIN, GPIO_FUNC_UART);
 
