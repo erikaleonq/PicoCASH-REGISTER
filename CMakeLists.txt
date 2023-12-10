@@ -14,6 +14,8 @@ add_executable(PICOCASH
     main.c
     keyboard.c
     uservalidation.c
+    salesMgent.c
+    receptor.c
     LCD.c
 )
  
@@ -24,8 +26,9 @@ target_link_libraries(PICOCASH
     hardware_gpio 
     hardware_pwm 
     hardware_irq 
-    hardware_sync)
-
+    hardware_sync
+    hardware_uart
+    hardware_spi)
 
 target_include_directories(PICOCASH PUBLIC hin/)
 

@@ -11,25 +11,76 @@
 int main() {
     stdio_init_all();
     initKeyboard();
+    init_uart();
     LCDInit();
     LCDconfig();
 
     char key;
     bool *newKey;
-    bool isUser = false, isAdmin;
+    bool isUser = false, isAdmin, printMenu = true, keyIsNum;
+    int *p;
+    
+
+    printf("Bienvenido a picoCA$H");
 
     while (1) {
         newKey = newKeyPressed();
-        if(*newKey) {
-            key = getKey();
-            if(!isUser) {
-                isUser = isValidUser(key, &isAdmin);
-            } else {
-                if(isAdmin) {
+        if(*newKey || isUser) {
+            key =  *newKey ? getKey() : 'p';
+            keyIsNum = ((int)key >= 48 && (int)key <= 57) ? 1 : 0;
+
+            if(key == 'F') {
+                printf("");
+                resetValidation();
+                isUser = false;
+                printMenu = true;
+                *newKey = false;
+            }
+
+            if(!isUser && keyIsNum) {
+                isValidUser(key, &isAdmin);
+                *newKey = false;
+            } else if (!isUser && key == 'E') {
+                resetValidation();
+                *newKey = false;
+            } else if (!isUser && key == 'A') {
+                isUser = confirmUser(&isAdmin);
+                *newKey = false;
+            }
+
+            if(isAdmin && isUser) {
+                if(printMenu == true) {
                     printf("Es admin\n");
+                    printMenu = false;
+                }
+
+                if(*newKey && keyIsNum) {
+                    
+                }
+
+            } else if (isUser){ //Vendedor
+                if(printMenu == true) {
+                    printf("Es vendedor\n");
+                    printMenu = false;
+                }
+
+                if(*newKey) {
+                    switch (key)
+                    {
+                    case 'f':
+                        iniciarVenta();
+                        /* code */
+                        break;
+                    case '#':
+                        //ingresa cedula
+                        /* code */
+                        break;
+                    
+                    default:
+                        break;
+                    }
                 }
             }
-            //printf("%c \n", key);
             *newKey = false;
         }
         // Entrar en modo de espera hasta la próxima interrupción
