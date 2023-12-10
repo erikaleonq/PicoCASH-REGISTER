@@ -32,6 +32,9 @@ void ingresarDocumento() {
         if(*newKey && keyIsNum) {
             concatenarCaracter(key, documento, "DOC:", &count);
             *newKey = false;
+        } else if(*newKey && key == 'A') {
+            printf("Venta finalizada\n");
+
         }
     }
     //TODO: Buscar usuario
