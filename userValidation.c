@@ -19,6 +19,9 @@ void concatenarCaracter(char key, char *cadena, char *tipo, int *count) {
     //printf("\n\n\n\n\n\n\n\n\n\n\n");
     // Imprime un mensaje de depuración que muestra el tipo de datos y la cadena resultante
     printf("%s: %s\n", tipo, cadena);
+    ClearScreen();
+    WriteStr(tipo, 4);
+    WriteStr(cadena, len+1);    
 }
 
 int confirmUser (bool *isAdmin){ 
@@ -36,6 +39,7 @@ int confirmUser (bool *isAdmin){
         }
     }
     printf("Usuario o contraseña incorrectos \n");
+    writeInfo("    ID o PSW", 12, "   INCORRECTO", 13);
     inputUser = true;
     resetValidation();
     return 0;
@@ -51,7 +55,7 @@ void resetValidation() {
 
 bool isValidUser(char key, bool *isAdmin) {
     if(inputUser){
-        concatenarCaracter(key, user, "ID", &count_u);
+        concatenarCaracter(key, user, "ID :", &count_u);
 
         if(count_u == LENUSER){
             inputUser = false;
@@ -59,7 +63,7 @@ bool isValidUser(char key, bool *isAdmin) {
         }
     }
     else if (!inputUser){
-        concatenarCaracter(key, password, "PSW", &count_p);
+        concatenarCaracter(key, password, "PSW:", &count_p);
 
     }
     return false;

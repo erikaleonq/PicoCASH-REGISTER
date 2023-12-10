@@ -29,8 +29,9 @@ int main() {
             key =  *newKey ? getKey() : 'p';
             keyIsNum = ((int)key >= 48 && (int)key <= 57) ? 1 : 0;
 
-            if(key == 'F') {
-                printf("");
+            if(key == 'F' && isUser) {
+                //FINALIZAR SESION
+                writeInfo("     SESION", 11, "   FINALIZADA", 13);
                 resetValidation();
                 isUser = false;
                 printMenu = true;
@@ -41,16 +42,19 @@ int main() {
                 isValidUser(key, &isAdmin);
                 *newKey = false;
             } else if (!isUser && key == 'E') {
+                writeInfo("   REPITA SUS", 13, "  CREDENCIALES", 14);
                 resetValidation();
                 *newKey = false;
             } else if (!isUser && key == 'A') {
+                //printf("Ent ACEPTAR")
                 isUser = confirmUser(&isAdmin);
                 *newKey = false;
             }
 
             if(isAdmin && isUser) {
                 if(printMenu == true) {
-                    printf("Es admin\n");
+                    writeInfo("** BIENVENIDO **", 16, "*ADMINISTRADOR* ", 16);
+                    printf("Es admin\n"); //BIENVENIDO ADMINISTRADOR
                     printMenu = false;
                 }
 
@@ -60,6 +64,7 @@ int main() {
 
             } else if (isUser){ //Vendedor
                 if(printMenu == true) {
+                    writeInfo("** BIENVENIDO **", 16, "  * VENDEDOR *", 14);
                     printf("Es vendedor\n");
                     printMenu = false;
                 }
@@ -68,6 +73,7 @@ int main() {
                     switch (key)
                     {
                     case 'f':
+                        writeInfo("     LECTOR", 11, "    ACTIVADO", 12);
                         iniciarVenta();
                         /* code */
                         break;
