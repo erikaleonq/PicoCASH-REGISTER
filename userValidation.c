@@ -1,5 +1,7 @@
 #include "userValidation.h"
 #include "Data.h"
+#include "LCD.h"
+
 
 char user[LENUSER] = "", password[LENPWD] = "";
 int count_u = 0, count_p = 0;
@@ -42,14 +44,14 @@ void reset(char* user, char* password, int* count_p, int* count_u) {
 
 bool isValidUser(char key, bool *isAdmin) {
     if(inputUser == true){
-        concatenarCaracter(key, user, "ID", &count_u);
+        concatenarCaracter(key, user, "ID :", &count_u);
         if(count_u == LENUSER){
             inputUser = false;
             printf("Termina usuario \n");
         }
     }
     else if (inputUser == false){
-        concatenarCaracter(key, password, "PSW", &count_p);
+        concatenarCaracter(key, password, "PSW:", &count_p);
         if(count_p == LENPWD){
             if(confirmUser (user, password, isAdmin)){ //Usuario y contraseña correctos
                 printf("Usuario y contraseña correctos \n");
