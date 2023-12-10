@@ -170,3 +170,10 @@ void WriteInt(int value){
     }
     WriteStr(&digitos[0] , longitud);
 }
+
+void writeInfo(char *info1, int len1, char *info2, int len2){
+    ClearScreen();
+    WriteStr(info1, len1);
+    ChgLine();
+    WriteStr(info2, len2);
+}
