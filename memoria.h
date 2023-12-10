@@ -11,9 +11,9 @@
 #define MAX_POS 5
 // Estructura para almacenar tres valores flotantes
 typedef struct {
-    float valor1;
-    float valor2;
-    float valor3;
+    uint16_t valor1;
+    uint16_t valor2;
+    uint16_t valor3;
 } DatosFlotantes;
 
 void init_i2c();
