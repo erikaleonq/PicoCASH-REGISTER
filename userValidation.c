@@ -19,50 +19,44 @@ void concatenarCaracter(char key, char *cadena, char *tipo, int *count) {
     printf("%s: %s\n", tipo, cadena);
 }
 
-int confirmUser (char *user , char *password, bool *isAdmin){ 
+int confirmUser (bool *isAdmin){ 
     for(int i=0 ; i<NUMADMINS ; i++){
         int resultado = strncmp(usersData[i][0], user, LENUSER); //Si las cadenas son iguales resultado = 0
-        if (resultado == 0) {  // verificamos usuario
+        if (resultado == 0 && strlen(password) == LENPWD) {  // verificamos usuario
             resultado = strncmp(usersData[i][1], password, LENPWD);
             if (resultado == 0) {  // verificamos contraseña
                 *isAdmin = (bool)usersData[i][2];
-                return 1;
+                printf("Usuario y contraseña correctos \n");
+                inputUser = true;
+                resetValidation();
+                return true;
             }
         }
     }
+    printf("Usuario o contraseña incorrectos \n");
+    inputUser = true;
+    resetValidation();
     return 0;
 }
 
-void reset(char* user, char* password, int* count_p, int* count_u) {
+void resetValidation() {
     strcpy(user, "");	
     strcpy(password, "");
-    *count_p = 0;
-    *count_u = 0;
+    count_p = 0;
+    count_u = 0;
+    inputUser = true;
 }
 
 bool isValidUser(char key, bool *isAdmin) {
-    if(inputUser == true){
+    if(inputUser){
         concatenarCaracter(key, user, "ID", &count_u);
         if(count_u == LENUSER){
             inputUser = false;
             printf("Termina usuario \n");
         }
     }
-    else if (inputUser == false){
+    else if (!inputUser){
         concatenarCaracter(key, password, "PSW", &count_p);
-        if(count_p == LENPWD){
-            if(confirmUser (user, password, isAdmin)){ //Usuario y contraseña correctos
-                printf("Usuario y contraseña correctos \n");
-                inputUser = true;
-                reset(user, password, &count_p, &count_u);
-                return true;
-            }
-            else{
-                printf("Usuario o contraseña incorrectos \n");
-                inputUser = true;
-                reset(user, password, &count_p, &count_u);
-            }
-        }
     }
     return false;
 }
