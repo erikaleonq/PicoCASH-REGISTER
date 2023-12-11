@@ -80,7 +80,6 @@ void product_exist() {
                 tag_exists = false;
             }
         }
-        printf("id: %li", id);
         if (!tag_exists && id != 0) {
             writeInfo("    PRODUCTO", 12, "  DESCONOCIDO", 13);;
         }
