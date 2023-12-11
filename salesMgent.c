@@ -1,10 +1,11 @@
 #include "salesMgent.h"
 
+int mult;
+
 void iniciarVenta() {
 
     char key = 'n';
     bool *newKey, keyIsNum;
-    int mult;
     reiniciarCuenta();
 
     
@@ -24,8 +25,19 @@ void iniciarVenta() {
                     mult = keyIsNum ? (int)key - 48 : 1;
                 }
                 *newKey = false;
+                uint16_t *cuenta = getCuenta();
+                uint16_t precio = getPrecio();
                 WriteInt(mult);
                 printf("Se multiplica por %i\n", mult);
+
+                *cuenta += precio * (mult - 1);
+                mult = 1;
+                printf("cuenta %li \n", *cuenta);
+            } else if (key == 'L') {
+                printf("Producto retirado de la cuenta\n");
+                uint16_t *cuenta = getCuenta();
+                uint16_t precio = getPrecio();
+                *cuenta -= precio;
             }
         }
         recive_tag();

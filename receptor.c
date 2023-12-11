@@ -5,6 +5,7 @@ int received_message_length = 0;
 uint16_t converted_value = 0;
 bool tag_detected = false;
 uint16_t cuenta = 0;
+uint16_t precio = 0;
 
 void clear_uart_buffer(uart_inst_t *uart)
 {
@@ -61,7 +62,9 @@ void product_exist() {
                     misDatos.valor2 = datosLeidos.valor2;
                     misDatos.valor3 = datosLeidos.valor3 -1 ;
                     i2c_write_struct(EEPROM_ADDR, misDatos, i);
-                    cuenta += datosLeidos.valor2;
+
+                    precio = datosLeidos.valor2;
+                    cuenta += precio;
                     displayProd(datosLeidos.valor1, datosLeidos.valor2);
                     ChgLine();
                     WriteStr("TOTAL: $", 8);
@@ -88,4 +91,12 @@ void product_exist() {
 
 void reiniciarCuenta() {
     cuenta = 0;
+}
+
+uint16_t *getCuenta() {
+    return &cuenta;
+}
+
+uint16_t getPrecio() {
+    return precio;
 }
