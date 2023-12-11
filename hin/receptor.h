@@ -19,5 +19,7 @@ void init_uart();
 void recive_tag();
 void product_exist();
 void reiniciarCuenta();
+uint16_t *getCuenta();
+uint16_t getPrecio();
 
 #endif

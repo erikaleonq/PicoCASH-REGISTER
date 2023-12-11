@@ -61,7 +61,7 @@ int main() {
 
                 if(*newKey && keyIsNum) {
                     if(key == '1') {
-                        //funcion para agregar productos o crear nuevos
+                        //new_product();
                     }
                 }
 
