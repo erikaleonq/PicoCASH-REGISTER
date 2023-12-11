@@ -17,6 +17,7 @@ add_executable(PICOCASH
     salesMgent.c
     receptor.c
     LCD.c
+    memoria.c
 )
  
 # pico_stdlib library. You can add more if they are needed
@@ -28,7 +29,8 @@ target_link_libraries(PICOCASH
     hardware_irq 
     hardware_sync
     hardware_uart
-    hardware_spi)
+    hardware_spi
+    hardware_i2c)
 
 target_include_directories(PICOCASH PUBLIC hin/)
 

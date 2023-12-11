@@ -12,6 +12,7 @@ void iniciarVenta() {
             key =  getKey();
         }
         recive_tag();
+        product_exist();
     }
 }
 

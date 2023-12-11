@@ -1,5 +1,4 @@
 #include "receptor.h"
-#include "memoria.h"
 
 char received_message[5];
 int received_message_length = 0;
@@ -16,7 +15,6 @@ void clear_uart_buffer(uart_inst_t *uart)
 
 void init_uart()
 {
-
     uart_init(UART_ID, BAUD_RATE);
     gpio_set_function(RX_PIN, GPIO_FUNC_UART);
 }

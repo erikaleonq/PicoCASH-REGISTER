@@ -12,6 +12,7 @@ int main() {
     stdio_init_all();
     initKeyboard();
     init_uart();
+    init_i2c();
     LCDInit();
     LCDconfig();
 
