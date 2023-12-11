@@ -6,6 +6,8 @@ void iniciarVenta() {
 
     char key = 'n';
     bool *newKey, keyIsNum;
+    uint16_t *cuenta;
+    uint16_t precio;
     reiniciarCuenta();
 
     
@@ -17,25 +19,37 @@ void iniciarVenta() {
             key =  getKey();
             if (key == '*') {
                 printf("Seleccione cantidad: \n");
-                while(!keyIsNum) {
+                writeInfo("    INGRESE", 11, "  CANTIDAD : ", 13);
+                while(key != 'R') {
                     newKey = newKeyPressed();
                     key =  *newKey ? getKey() : 'p';
                     keyIsNum = ((int)key >= 48 && (int)key <= 57) ? 1 : 0;
-                    mult = keyIsNum ? (int)key - 48 : 1;
+                    mult = keyIsNum ? (int)key - 48 : mult;
+                    if(keyIsNum){
+                        WriteInt(mult);
+                        *newKey = false;
+                    }
                 }
-                *newKey = false;
-                uint16_t *cuenta = getCuenta();
-                uint16_t precio = getPrecio();
-                
+
+                cuenta = getCuenta();
+                precio = getPrecio();
                 printf("Se multiplica por %i\n", mult);
 
                 *cuenta += precio * (mult - 1);
                 mult = 1;
                 printf("cuenta %li \n", *cuenta);
+                
+                
+                displayProd(1, precio);
+                ChgLine();
+                WriteStr("TOTAL: $", 8);
+                WriteInt(*cuenta*100);
+
             } else if (key == 'L') {
                 printf("Producto retirado de la cuenta\n");
-                uint16_t *cuenta = getCuenta();
-                uint16_t precio = getPrecio();
+                writeInfo("    PRODUCTO", 12, "    RETIRADO", 12);
+                cuenta = getCuenta();
+                precio = getPrecio();
                 *cuenta -= precio;
             }
         }

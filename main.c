@@ -47,8 +47,6 @@ int main() {
                 *newKey = false;
             } else if (!isUser && key == 'A') {
                 isUser = confirmUser(&isAdmin);
-                ChgLine();
-                WriteStr("ENT para Aceptar.", 16);
                 *newKey = false;
             }
 

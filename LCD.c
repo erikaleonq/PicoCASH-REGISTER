@@ -184,7 +184,4 @@ void displayProd(int ID, int valor){
     WriteInt(ID);
     WriteStr(" $", 2); 
     WriteInt(valor*100);
-    ChgLine();
-    WriteStr("TOTAL: $", 8);
-    WriteInt(valor*4);
 }
