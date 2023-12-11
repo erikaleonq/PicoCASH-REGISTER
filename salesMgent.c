@@ -17,6 +17,7 @@ void iniciarVenta() {
             key =  getKey();
             if (key == '*') {
                 printf("Seleccione cantidad: \n");
+                writeInfo("    INGRESE", 11, "  CANTIDAD : ", 13);
                 while(!keyIsNum) {
                     newKey = newKeyPressed();
                     key =  *newKey ? getKey() : 'p';
@@ -26,7 +27,7 @@ void iniciarVenta() {
                 *newKey = false;
                 uint16_t *cuenta = getCuenta();
                 uint16_t precio = getPrecio();
-                
+                WriteInt(mult);
                 printf("Se multiplica por %i\n", mult);
 
                 *cuenta += precio * (mult - 1);
