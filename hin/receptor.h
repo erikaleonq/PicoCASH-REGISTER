@@ -6,6 +6,7 @@
 #include "pico/stdlib.h"
 #include "hardware/uart.h"
 #include "hardware/sync.h"
+//#include "keyboard.h"
 
 #define UART_ID uart1
 #define BAUD_RATE 1000000
@@ -18,5 +19,6 @@ void recive_tag();
 uint16_t *tag_value();
 bool *is_tag_detected();
 void product_exist();
+void new_product();
 
 #endif
