@@ -8,9 +8,9 @@
 #define LENUSER 4
 #define LENPWD 6
 
-int confirmUser (char *user , char *password, bool *isAdmin);
+int confirmUser (bool *isAdmin);
 void concatenarCaracter(char key, char *cadena, char *tipo, int *count);
-void reset(char* user, char* password, int* count_p, int* count_u);
+void resetValidation();
 bool isValidUser(char key, bool *isAdmin);
 
 #endif

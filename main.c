@@ -11,23 +11,86 @@
 int main() {
     stdio_init_all();
     initKeyboard();
+    init_uart();
+    init_i2c();
+    LCDInit();
+    LCDconfig();
 
+    //write_Position(2, 4000);
     char key;
     bool *newKey;
-    bool isUser = false, isAdmin;
+    bool isUser = false, isAdmin, printMenu = true, keyIsNum;    
+
+    printf("Bienvenido a picoCA$H");
 
     while (1) {
         newKey = newKeyPressed();
-        if(*newKey) {
-            key = getKey();
-            if(!isUser) {
-                isUser = isValidUser(key, &isAdmin);
-            } else {
-                if(isAdmin) {
-                    printf("Es admin\n");
+        if(*newKey || isUser) {
+            key =  *newKey ? getKey() : 'p';
+            keyIsNum = ((int)key >= 48 && (int)key <= 57) ? 1 : 0;
+
+            if(key == 'F' && isUser) {
+                //FINALIZAR SESION
+                writeInfo("     SESION", 11, "   FINALIZADA", 13);
+                resetValidation();
+                isUser = false;
+                printMenu = true;
+                *newKey = false;
+            }
+
+            if(!isUser && keyIsNum) {
+                isValidUser(key, &isAdmin);
+                *newKey = false;
+            } else if (!isUser && key == 'E') {
+                writeInfo("   REPITA SUS", 13, "  CREDENCIALES", 14);
+                resetValidation();
+                *newKey = false;
+            } else if (!isUser && key == 'A') {
+                isUser = confirmUser(&isAdmin);
+                *newKey = false;
+            }
+
+            if(isAdmin && isUser) {
+                if(printMenu == true) {
+                    writeInfo("BIENVENIDO ADMIN", 16, "1: AGREGA PRODUC ", 16);
+                    printf("Presione 1 para agregar productos\n"); //BIENVENIDO ADMINISTRADOR
+                    printMenu = false;
+                }
+
+                if(*newKey && keyIsNum) {
+                    if(key == '1') {
+                        writeInfo("     LECTOR", 11, "    ACTIVADO", 12);
+                        *newKey = false;
+                        if (!new_product()) {
+                            printMenu = true;
+                        *newKey = true;
+                        }
+                    }
+                }
+
+            } else if (isUser){ //Vendedor
+                if(printMenu == true) {
+                    writeInfo("** BIENVENIDO **", 16, "  * VENDEDOR *", 14);
+                    printf("Es vendedor\n");
+                    printMenu = false;
+                }
+                if(*newKey) {
+                    switch (key)
+                    {
+                    case 'f':
+                        writeInfo("     LECTOR", 11, "    ACTIVADO", 12);
+                        iniciarVenta();
+                        break;
+                    case '#':
+                        *newKey = false;
+                        ingresarDocumento();
+                        break;
+                    
+                    default:
+                        break;
+                    }
                 }
             }
-            //printf("%c \n", key);
             *newKey = false;
         }
         // Entrar en modo de espera hasta la próxima interrupción
