@@ -53,12 +53,14 @@ int main() {
             if(isAdmin && isUser) {
                 if(printMenu == true) {
                     writeInfo("** BIENVENIDO **", 16, "*ADMINISTRADOR* ", 16);
-                    printf("Es admin\n"); //BIENVENIDO ADMINISTRADOR
+                    printf("Presione 1 para agregar productos\n"); //BIENVENIDO ADMINISTRADOR
                     printMenu = false;
                 }
 
                 if(*newKey && keyIsNum) {
-                    
+                    if(key == '1') {
+                        //funcion para agregar productos o crear nuevos
+                    }
                 }
 
             } else if (isUser){ //Vendedor
