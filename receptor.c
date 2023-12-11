@@ -17,14 +17,12 @@ void clear_uart_buffer(uart_inst_t *uart)
     }
 }
 
-void init_uart()
-{
+void init_uart() {
     uart_init(UART_ID, BAUD_RATE);
     gpio_set_function(RX_PIN, GPIO_FUNC_UART);
 }
 
-void recive_tag()
-{
+void recive_tag() {
 
     if (uart_is_readable(UART_ID))
     {
@@ -46,6 +44,8 @@ void recive_tag()
 
 void product_exist() {
     bool tag_exists = false;
+    recive_tag();
+    recive_tag();
 
     uint16_t id;
     id = converted_value;

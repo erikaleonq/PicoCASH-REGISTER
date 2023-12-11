@@ -16,7 +16,7 @@ int main() {
     LCDInit();
     LCDconfig();
 
-    write_Position(2, 4000);
+    //write_Position(2, 4000);
     char key;
     bool *newKey;
     bool isUser = false, isAdmin, printMenu = true, keyIsNum;    
