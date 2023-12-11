@@ -2,7 +2,7 @@
 
 void iniciarVenta() {
 
-    char Key = 'n';
+    char key = 'n';
     bool *newKey, keyIsNum;
     int mult;
     reiniciarCuenta();
@@ -16,6 +16,7 @@ void iniciarVenta() {
             key =  getKey();
             if (key == '*') {
                 printf("Seleccione cantidad: \n");
+                writeInfo("    INGRESE", 11, "  CANTIDAD : ", 13);
                 while(!keyIsNum) {
                     newKey = newKeyPressed();
                     key =  *newKey ? getKey() : 'p';
@@ -23,6 +24,7 @@ void iniciarVenta() {
                     mult = keyIsNum ? (int)key - 48 : 1;
                 }
                 *newKey = false;
+                WriteInt(mult);
                 printf("Se multiplica por %i\n", mult);
             }
         }

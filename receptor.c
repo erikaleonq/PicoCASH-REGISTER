@@ -43,6 +43,8 @@ void recive_tag()
 
 void product_exist() {
     bool tag_exists = false;
+    uint16_t id;
+    id = converted_value;
 
     if (tag_detected) {
         for (int i = 0; i < MAX_POS; i++)
@@ -52,18 +54,21 @@ void product_exist() {
             // printf("valor1: %f\n", datosLeidos.valor1);
             if (datosLeidos.valor1 == converted_value) {
                 printf("ID: %li, Precio: %li, Cantidad %li\n", datosLeidos.valor1, datosLeidos.valor2, datosLeidos.valor3);
-
-                displayProd(datosLeidos.valor1, datosLeidos.valor2);
-
                 if (datosLeidos.valor3 > 0)
                 {
-
                     DatosFlotantes misDatos;
                     misDatos.valor1 = datosLeidos.valor1;
                     misDatos.valor2 = datosLeidos.valor2;
-                    misDatos.valor3 = datosLeidos.valor3 - 1 ;
+                    misDatos.valor3 = datosLeidos.valor3 -1 ;
                     i2c_write_struct(EEPROM_ADDR, misDatos, i);
                     cuenta += datosLeidos.valor2;
+                    displayProd(datosLeidos.valor1, datosLeidos.valor2);
+                    ChgLine();
+                    WriteStr("TOTAL: $", 8);
+                    WriteInt(cuenta*100);
+                }
+                else{
+                    writeInfo("SIN EXISTENCIAS", 15, "  DEL PRODUCTO", 14);
                 }
                 tag_exists = true;
                 break;
@@ -72,10 +77,12 @@ void product_exist() {
                 tag_exists = false;
             }
         }
-        if (!tag_exists) {
-            printf("Este producto no existe!!!!!! \n");
+        printf("id: %li", id);
+        if (!tag_exists && id != 0) {
+            writeInfo("    PRODUCTO", 12, "  DESCONOCIDO", 13);;
         }
         tag_detected = false;
+        
     }
 }
 
