@@ -12,14 +12,13 @@ int main() {
     stdio_init_all();
     initKeyboard();
     init_uart();
+    init_i2c();
     LCDInit();
     LCDconfig();
 
     char key;
     bool *newKey;
-    bool isUser = false, isAdmin, printMenu = true, keyIsNum;
-    int *p;
-    
+    bool isUser = false, isAdmin, printMenu = true, keyIsNum;    
 
     printf("Bienvenido a picoCA$H");
 
@@ -68,18 +67,16 @@ int main() {
                     printf("Es vendedor\n");
                     printMenu = false;
                 }
-
                 if(*newKey) {
                     switch (key)
                     {
                     case 'f':
                         writeInfo("     LECTOR", 11, "    ACTIVADO", 12);
                         iniciarVenta();
-                        /* code */
                         break;
                     case '#':
-                        //ingresa cedula
-                        /* code */
+                        *newKey = false;
+                        ingresarDocumento();
                         break;
                     
                     default:

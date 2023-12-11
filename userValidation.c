@@ -60,6 +60,8 @@ bool isValidUser(char key, bool *isAdmin) {
         if(count_u == LENUSER){
             inputUser = false;
             printf("Termina usuario \n");
+            ClearScreen();
+            WriteStr("PSW:", 4);
         }
     }
     else if (!inputUser){
