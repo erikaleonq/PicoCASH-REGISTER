@@ -1,3 +1,8 @@
+/**
+ * @file keyboard.c
+ * @brief Archivo de encabezado para el módulo de teclado, el cual maneja un teclado de matriz 5x4.
+ */
+
 #include "keyboard.h"
 
 volatile uint8_t gKeyCnt = 0; // Contador global de teclas ingresadas
@@ -6,25 +11,29 @@ volatile bool gDZero = false; // Bandera para debouncer
 bool newKey = false;
 volatile char tecla;
 
-char keymap[NUM_FILAS][NUM_COLUMNAS] = { //[NUM_FILAS][NUM_COLUMNAS] = {
-    {'F', 'f', '#', '*'},  //F -> F1, //f -> F2
+char keymap[NUM_FILAS][NUM_COLUMNAS] = {
+    //[NUM_FILAS][NUM_COLUMNAS] = {
+    {'F', 'f', '#', '*'}, // F -> F1, //f -> F2
     {'1', '2', '3', 'U'},
     {'4', '5', '6', 'D'},
-    {'7', '8', '9', 'E'},  //E -> Esc
-    {'L', '0', 'R', 'A'}   //A -> Enter
+    {'7', '8', '9', 'E'}, // E -> Esc
+    {'L', '0', 'R', 'A'}  // A -> Enter
 };
 
+/**
+ * @brief Función de devolución de llamada para la interrupción de GPIO del teclado.
+ * @param num Número de la interrupción de GPIO que activó la función de devolución de llamada.
+ * @param mask Máscara de interrupción de GPIO.
+ */
 
-/// @brief Función de devolución de llamada para el teclado
-/// @param num Número de la interrupción de GPIO que activó la función de devolución de llamada
-/// @param mask Máscara de interrupción de GPIO
-void keyboardCallback(uint num, uint32_t mask) {
+void keyboardCallback(uint num, uint32_t mask)
+{
     // Congelar la secuencia de filas deshabilitando el PWM correspondiente
     pwm_set_enabled(0, false);
 
     // Habilitar el PWM para la secuencia de columna
     pwm_set_enabled(1, true);
-    
+
     // Deshabilitar las interrupciones de GPIO para las filas durante el debounce
     gpio_set_irq_enabled(0, GPIO_IRQ_EDGE_RISE, false);
     gpio_set_irq_enabled(1, GPIO_IRQ_EDGE_RISE, false);
@@ -33,68 +42,80 @@ void keyboardCallback(uint num, uint32_t mask) {
 
     // Obtener datos de teclado (bits 2-9) y decodificar la tecla
     uint32_t keyData = gpio_get_all() & 0x000001FF;
-    
+
     // Calcular el logaritmo en base 2 para obtener el índice en donde se encuentra el uno
-    int col = log2(keyData & 0xF); 
+    int col = log2(keyData & 0xF);
     int fil = 4 - log2((keyData >> 4) & 0x1F);
     tecla = keymap[fil][col];
     newKey = true;
-    //printf("%c \n", keymap[fil][col]);
+    // printf("%c \n", keymap[fil][col]);
 
     // Incrementar el contador de teclas ingresadas
-    //gKeyCnt++;
+    // gKeyCnt++;
 
     // Confirmar la interrupción de GPIO, borra la bandera de interrupción después de procesarla
     gpio_acknowledge_irq(num, mask);
 }
 
-/// @brief Función de devolución de llamada para la interrupción de PWM
-void pwmIRQ(void) {
+/**
+ * @brief Función de devolución de llamada para la interrupción de PWM.
+ */
+void pwmIRQ(void)
+{
     uint32_t keyc;
 
     // Determinar qué slice de PWM generó la interrupción
-    switch (pwm_get_irq_status_mask()) {
-        case 0x01UL: 
-            // ISR de la slice de PWM 0 utilizada como un temporizador para generar la secuencia de filas
-            gSeqCnt = (gSeqCnt + 1) % 5;
-            // Actualizar las filas activas en la matriz del teclado
-            gpio_put_masked(0x000001F0, 0x00000001 << (gSeqCnt + 4));
-            // Reconocer la interrupción de PWM de la slice 0
-            pwm_clear_irq(0);
-            break;
-        case 0x02UL: 
-            // ISR de la slice de PWM 1 utilizada como un temporizador para implementar el debounce
-            keyc = gpio_get_all() & 0x0000000F; // Obtener los valores brutos de los GPIO
-            if (gDZero) {
-                if (!keyc) {
-                    pwm_set_enabled(0, true); //Se reactiva la secuencia de escritura de las filas
-                    pwm_set_enabled(1, false); //Se desactiva el debouncer
-                    
-                    //Se activan de nuevo las interrupciones de GPIO en las columnas.
-                    gpio_set_irq_enabled(0, GPIO_IRQ_EDGE_RISE, true);
-                    gpio_set_irq_enabled(1, GPIO_IRQ_EDGE_RISE, true);
-                    gpio_set_irq_enabled(2, GPIO_IRQ_EDGE_RISE, true);
-                    gpio_set_irq_enabled(3, GPIO_IRQ_EDGE_RISE, true);
-                }
-                gDZero = false;
-            } else {
-                gDZero = true;
+    switch (pwm_get_irq_status_mask())
+    {
+    case 0x01UL:
+        // ISR de la slice de PWM 0 utilizada como un temporizador para generar la secuencia de filas
+        gSeqCnt = (gSeqCnt + 1) % 5;
+        // Actualizar las filas activas en la matriz del teclado
+        gpio_put_masked(0x000001F0, 0x00000001 << (gSeqCnt + 4));
+        // Reconocer la interrupción de PWM de la slice 0
+        pwm_clear_irq(0);
+        break;
+    case 0x02UL:
+        // ISR de la slice de PWM 1 utilizada como un temporizador para implementar el debounce
+        keyc = gpio_get_all() & 0x0000000F; // Obtener los valores brutos de los GPIO
+        if (gDZero)
+        {
+            if (!keyc)
+            {
+                pwm_set_enabled(0, true);  // Se reactiva la secuencia de escritura de las filas
+                pwm_set_enabled(1, false); // Se desactiva el debouncer
+
+                // Se activan de nuevo las interrupciones de GPIO en las columnas.
+                gpio_set_irq_enabled(0, GPIO_IRQ_EDGE_RISE, true);
+                gpio_set_irq_enabled(1, GPIO_IRQ_EDGE_RISE, true);
+                gpio_set_irq_enabled(2, GPIO_IRQ_EDGE_RISE, true);
+                gpio_set_irq_enabled(3, GPIO_IRQ_EDGE_RISE, true);
             }
-            // Reconocer la interrupción de PWM de la slice 1
-            pwm_clear_irq(1);
-            break;
-        default:
-            // Manejar un caso inesperado
-            printf("Se produjo un evento inesperado en PWM IRQ\n");
-            break;
+            gDZero = false;
+        }
+        else
+        {
+            gDZero = true;
+        }
+        // Reconocer la interrupción de PWM de la slice 1
+        pwm_clear_irq(1);
+        break;
+    default:
+        // Manejar un caso inesperado
+        printf("Se produjo un evento inesperado en PWM IRQ\n");
+        break;
     }
 }
 
-/// @brief Inicializa PWM como temporizador periódico (PIT).
-/// @param slice Número de la slice de PWM a utilizar.
-/// @param milis Duración del período del temporizador en milisegundos (máximo 262 ms).
-/// @param enable Indica si se debe habilitar el temporizador después de la inicialización.
-void initPWMasPIT(uint8_t slice, uint16_t milis, bool enable) {
+/**
+ * @brief Inicializa PWM como temporizador periódico (PIT).
+ * @param slice Número de la slice de PWM a utilizar.
+ * @param milis Duración del período del temporizador en milisegundos (máximo 262 ms).
+ * @param enable Indica si se debe habilitar el temporizador después de la inicialización.
+ */
+
+void initPWMasPIT(uint8_t slice, uint16_t milis, bool enable)
+{
     // Asegurarse de que la duración del período sea válida (máximo 262 ms)
     assert(milis <= 262);
 
@@ -124,9 +145,12 @@ void initPWMasPIT(uint8_t slice, uint16_t milis, bool enable) {
     pwm_init(slice, &cfg, enable);
 }
 
+/**
+ * @brief Inicializa un teclado de matriz 5x4.
+ */
 
-/// @brief Inicializa una matriz de teclado 4x4.
-void initMatrixKeyboard5x4(void) { 
+void initMatrixKeyboard5x4(void)
+{
     // Configuración de los GPIO para las filas de la matriz (secuencia one hot)
     // Los GPIOs 8 a 4 controlan las filas del teclado
     gpio_set_function(4, GPIO_FUNC_SIO);
@@ -156,9 +180,14 @@ void initMatrixKeyboard5x4(void) {
     gpio_set_irq_enabled_with_callback(3, GPIO_IRQ_EDGE_RISE, true, keyboardCallback);
 }
 
-void initKeyboard() {
+/**
+ * @brief Inicializa el módulo de teclado.
+ */
+
+void initKeyboard()
+{
     // Inicializar PWM como PIT para controlar las secuencias de tiempo
-    initPWMasPIT(0, 2, true);           //initPWMasPIT(slice, periodo, enable)
+    initPWMasPIT(0, 2, true); // initPWMasPIT(slice, periodo, enable)
     initPWMasPIT(1, 50, false);
 
     // Configurar el controlador de interrupción exclusivo para la interrupción PWM
@@ -170,10 +199,20 @@ void initKeyboard() {
     initMatrixKeyboard5x4();
 }
 
-bool *newKeyPressed() {
+/**
+ * @brief Retorna un puntero a la bandera que indica una nueva pulsación de tecla.
+ * @return Puntero a la bandera newKey.
+ */
+
+bool *newKeyPressed()
+{
     return &newKey;
 }
-
-char getKey() {
+/**
+ * @brief Retorna la última tecla presionada.
+ * @return Última tecla presionada.
+ */
+char getKey()
+{
     return tecla;
 }

@@ -2,15 +2,15 @@
 
 /**
  * @file LCD.c
- * @brief Este archivo contiene funciones relacionadas con el control de una pantalla LCD. 
- * Incluye funciones para inicializar los pines de la pantalla LCD, configurarla con comandos específicos, enviar datos a la 
+ * @brief Este archivo contiene funciones relacionadas con el control de una pantalla LCD.
+ * Incluye funciones para inicializar los pines de la pantalla LCD, configurarla con comandos específicos, enviar datos a la
  * pantalla y realizar operaciones como cambiar de línea y limpiar la pantalla.
  */
 
 /**
  *                       GPIO      MASK
- * Pin D4.                 9    0x00000200 
- * Pin D5.                10    0x00000400    
+ * Pin D4.                 9    0x00000200
+ * Pin D5.                10    0x00000400
  * Pin D6.                11    0x00000800
  * Pin D7.                12    0x00001000
  * Pin RS.                13    0x00002000
@@ -21,13 +21,12 @@
  * Esta función inicializa los pines configurados previamente para la pantalla LCD.
  */
 
-
-void LCDInit(){ 
+void LCDInit()
+{
 
     gpio_init_mask(0x00007E00);
     gpio_set_dir_out_masked(0x00007E00);
     gpio_put_masked(0x00007E00, 0);
-
 }
 
 /**
@@ -35,13 +34,15 @@ void LCDInit(){
  *
  * Esta función configura la pantalla LCD con los comandos iniciales necesarios.
  */
-void LCDconfig() {
+void LCDconfig()
+{
     sleep_ms(100);
-    for (int i=0;  i<3; i++){
+    for (int i = 0; i < 3; i++)
+    {
         Write4Bits(LCD_INIT, MSB, LCD_RS_CMD);
         sleep_ms(5);
     }
-        
+
     Write4Bits(LCD_SET, MSB, LCD_RS_CMD);
     sleep_ms(1);
 
@@ -60,7 +61,7 @@ void LCDconfig() {
     Write4Bits(LCD_ENTRY_MODE, MSB, LCD_RS_CMD);
     Write4Bits(LCD_ENTRY_MODE, LSB, LCD_RS_CMD);
     sleep_ms(1);
-    
+
     Write4Bits(LCD_BLINK, MSB, LCD_RS_CMD);
     Write4Bits(LCD_BLINK, LSB, LCD_RS_CMD);
     sleep_ms(1);
@@ -69,7 +70,6 @@ void LCDconfig() {
     WriteStr("*** PICOCA$H ***", 16);
     ChgLine();
     WriteStr("     LOG IN     ", 16);
-
 }
 
 /**
@@ -77,8 +77,9 @@ void LCDconfig() {
  *
  * Esta función genera un pulso en el pin ENABLE para enviar datos a la pantalla LCD.
  */
-void PulseEnable(){
-    gpio_put_masked(0x00004000, 0);  //
+void PulseEnable()
+{
+    gpio_put_masked(0x00004000, 0); //
     sleep_ms(1);
     gpio_put_masked(0x00004000, 1 << 14);
     sleep_ms(1);
@@ -95,15 +96,19 @@ void PulseEnable(){
  *
  * Esta función escribe 4 bits de datos en la pantalla LCD.
  */
-void Write4Bits(uint8_t data, int isLSB, int isData){
-    
-    if(!isLSB)  {
+void Write4Bits(uint8_t data, int isLSB, int isData)
+{
+
+    if (!isLSB)
+    {
         data = data >> 4;
-    } else {
+    }
+    else
+    {
         data = data << 4;
         data = data >> 4;
     }
-    
+
     gpio_put_masked(0x00002000, isData << 13);
     gpio_put_masked(0x00001E00, data << 9);
 
@@ -115,7 +120,8 @@ void Write4Bits(uint8_t data, int isLSB, int isData){
  *
  * Esta función cambia de línea en la pantalla LCD.
  */
-void ChgLine(){
+void ChgLine()
+{
     Write4Bits(LCD_CHG_LINE, MSB, LCD_RS_CMD);
     Write4Bits(LCD_CHG_LINE, LSB, LCD_RS_CMD);
 }
@@ -125,7 +131,8 @@ void ChgLine(){
  *
  * Esta función limpia la pantalla LCD.
  */
-void ClearScreen(){
+void ClearScreen()
+{
     Write4Bits(LCD_CLR, 0, 0);
     Write4Bits(LCD_CLR, 1, 0);
 }
@@ -138,9 +145,11 @@ void ClearScreen(){
  *
  * Esta función escribe una cadena de caracteres en la pantalla LCD.
  */
-void WriteStr(char (*array), int len){
+void WriteStr(char(*array), int len)
+{
 
-    for(int i = 0; i < len; i++){
+    for (int i = 0; i < len; i++)
+    {
         Write4Bits(*(array + i), MSB, LCD_RS_DATA);
         Write4Bits(*(array + i), LSB, LCD_RS_DATA);
     }
@@ -153,35 +162,61 @@ void WriteStr(char (*array), int len){
  *
  * Esta función escribe un número entero en la pantalla LCD.
  */
-void WriteInt(int value){
+void WriteInt(int value)
+{
 
     int digito, longitud, i;
-    
+
     // Calcular la longitud del número
     longitud = value != 0 ? (int)log10(value) + 1 : 1;
-    
+
     char digitos[longitud];
-    
+
     int temp = value;
-    for (i = 0; i < longitud; i++) {
+    for (i = 0; i < longitud; i++)
+    {
         digito = temp % 10;
         digitos[longitud - i - 1] = (char)(digito + 48);
         temp = temp / 10;
     }
-    WriteStr(&digitos[0] , longitud);
+    WriteStr(&digitos[0], longitud);
 }
 
-void writeInfo(char *info1, int len1, char *info2, int len2){
+/**
+ * @brief Escribe información en la pantalla LCD.
+ *
+ * @param[in] info1 Puntero a la primera cadena de caracteres a escribir.
+ * @param[in] len1 Longitud de la primera cadena.
+ * @param[in] info2 Puntero a la segunda cadena de caracteres a escribir.
+ * @param[in] len2 Longitud de la segunda cadena.
+ *
+ * Esta función borra la pantalla, escribe la primera cadena seguida de un cambio de línea
+ * y luego escribe la segunda cadena en la siguiente línea.
+ */
+
+void writeInfo(char *info1, int len1, char *info2, int len2)
+{
     ClearScreen();
     WriteStr(info1, len1);
     ChgLine();
     WriteStr(info2, len2);
 }
 
-void displayProd(int ID, int valor){
+/**
+ * @brief Muestra información de un producto en la pantalla LCD.
+ *
+ * @param[in] ID Identificador del producto.
+ * @param[in] valor Valor del producto.
+ *
+ * Esta función borra la pantalla, escribe "REF:" seguido del ID del producto,
+ * luego escribe " $" y finalmente escribe el valor del producto multiplicado por 100.
+ */
+
+void displayProd(int ID, int valor)
+{
     ClearScreen();
     WriteStr("REF:", 4);
     WriteInt(ID);
-    WriteStr(" $", 2); 
-    WriteInt(valor*100);
+    WriteStr(" $", 2);
+    WriteInt(valor * 100);
 }
