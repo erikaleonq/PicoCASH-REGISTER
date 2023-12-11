@@ -1,21 +1,37 @@
 #include "salesMgent.h"
 
 void iniciarVenta() {
+
     char Key = 'n';
-    bool *newKey;
+    bool *newKey, keyIsNum;
+    int mult;
+    reiniciarCuenta();
 
     
-    while (Key != 'A' ) {
+    while (key != 'A') {
         newKey = newKeyPressed();
+        keyIsNum = ((int)key >= 48 && (int)key <= 57) ? 1 : 0;
 
         if(*newKey) {
-            Key =  getKey();
-            *newKey = false;
+            key =  getKey();
+            if (key == '*') {
+                printf("Seleccione cantidad: \n");
+                while(!keyIsNum) {
+                    newKey = newKeyPressed();
+                    key =  *newKey ? getKey() : 'p';
+                    keyIsNum = ((int)key >= 48 && (int)key <= 57) ? 1 : 0;
+                    mult = keyIsNum ? (int)key - 48 : 1;
+                }
+                *newKey = false;
+                printf("Se multiplica por %i\n", mult);
+            }
         }
         recive_tag();
         product_exist();
     }
     writeInfo("     VENTA", 10, "** FINALIZADA **", 16);
+
+    printf("Compra finalizada");
 }
 
 void ingresarDocumento() {
@@ -26,7 +42,6 @@ void ingresarDocumento() {
     bool *newKey, keyIsNum;
     char documento[10];
     int count = 0;
-
     
     while (key != 'A') {
         newKey = newKeyPressed();
@@ -40,7 +55,6 @@ void ingresarDocumento() {
             writeInfo("     LECTOR", 11, "    ACTIVADO", 12);
             printf("INCIA VENTA\n");
             *newKey = false;
-
         }
     }
     //TODO: Buscar usuario

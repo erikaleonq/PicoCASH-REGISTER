@@ -17,8 +17,7 @@
 void clear_uart_buffer(uart_inst_t *uart);
 void init_uart();
 void recive_tag();
-uint16_t *tag_value();
-bool *is_tag_detected();
 void product_exist();
+void reiniciarCuenta();
 
 #endif
