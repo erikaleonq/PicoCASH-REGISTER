@@ -7,6 +7,7 @@
 #include "hardware/uart.h"
 #include "hardware/sync.h"
 #include "memoria.h"
+#include "LCD.h"
 
 #define UART_ID uart0
 #define BAUD_RATE 1000000

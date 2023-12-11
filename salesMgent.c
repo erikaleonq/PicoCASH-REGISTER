@@ -1,24 +1,27 @@
 #include "salesMgent.h"
 
 void iniciarVenta() {
-    char key;
+    char Key = 'n';
     bool *newKey;
 
     
-    while (key != 'F') {
+    while (Key != 'A' ) {
         newKey = newKeyPressed();
 
         if(*newKey) {
-            key =  getKey();
+            Key =  getKey();
+            *newKey = false;
         }
         recive_tag();
         product_exist();
     }
+    writeInfo("     VENTA", 10, "** FINALIZADA **", 16);
 }
 
 void ingresarDocumento() {
 
     printf("Ingrese documento del cliente: \n ");
+    writeInfo("    INGRESE", 11, "   DOCUMENTO", 12);
     char key;
     bool *newKey, keyIsNum;
     char documento[10];
@@ -34,7 +37,9 @@ void ingresarDocumento() {
             concatenarCaracter(key, documento, "DOC:", &count);
             *newKey = false;
         } else if(*newKey && key == 'A') {
-            printf("Venta finalizada\n");
+            writeInfo("     LECTOR", 11, "    ACTIVADO", 12);
+            printf("INCIA VENTA\n");
+            *newKey = false;
 
         }
     }

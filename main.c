@@ -47,6 +47,8 @@ int main() {
             } else if (!isUser && key == 'A') {
                 //printf("Ent ACEPTAR")
                 isUser = confirmUser(&isAdmin);
+                ChgLine();
+                WriteStr("ENT para Aceptar.", 16);
                 *newKey = false;
             }
 

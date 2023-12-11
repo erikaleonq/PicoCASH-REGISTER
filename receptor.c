@@ -70,6 +70,9 @@ void product_exist()
             if (datosLeidos.valor1 == *tag_number)
             {
                 printf("ID: %li, Precio: %li, Cantidad %li\n", datosLeidos.valor1, datosLeidos.valor2, datosLeidos.valor3);
+
+                displayProd(datosLeidos.valor1, datosLeidos.valor2);
+
                 if (datosLeidos.valor3 > 0)
                 {
                     DatosFlotantes misDatos;

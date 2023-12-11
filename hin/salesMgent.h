@@ -8,6 +8,8 @@
 #include "receptor.h"
 #include "keyboard.h"
 #include "userValidation.h"
+#include "LCD.h"
+
 
 
 void iniciarVenta();
