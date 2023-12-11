@@ -33,5 +33,6 @@ void Write4Bits(uint8_t data, int nibble, int isComand);
 void WriteInt(int value);
 void WriteStr(char (*array), int len);
 void writeInfo(char *info1, int len1, char *info2, int len2);
+void displayProd(int ID, int valor);
 
 #endif

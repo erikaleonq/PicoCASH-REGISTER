@@ -52,7 +52,12 @@ void product_exist() {
             // printf("valor1: %f\n", datosLeidos.valor1);
             if (datosLeidos.valor1 == converted_value) {
                 printf("ID: %li, Precio: %li, Cantidad %li\n", datosLeidos.valor1, datosLeidos.valor2, datosLeidos.valor3);
-                if (datosLeidos.valor3 > 0) {
+
+                displayProd(datosLeidos.valor1, datosLeidos.valor2);
+
+                if (datosLeidos.valor3 > 0)
+                {
+
                     DatosFlotantes misDatos;
                     misDatos.valor1 = datosLeidos.valor1;
                     misDatos.valor2 = datosLeidos.valor2;

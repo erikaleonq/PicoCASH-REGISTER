@@ -177,3 +177,14 @@ void writeInfo(char *info1, int len1, char *info2, int len2){
     ChgLine();
     WriteStr(info2, len2);
 }
+
+void displayProd(int ID, int valor){
+    ClearScreen();
+    WriteStr("REF:", 4);
+    WriteInt(ID);
+    WriteStr(" $", 2); 
+    WriteInt(valor*100);
+    ChgLine();
+    WriteStr("TOTAL: $", 8);
+    WriteInt(valor*4);
+}
