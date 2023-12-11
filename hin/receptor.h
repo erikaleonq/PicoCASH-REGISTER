@@ -8,6 +8,8 @@
 #include "hardware/sync.h"
 #include "memoria.h"
 #include "LCD.h"
+#include "keyboard.h"
+#include "userValidation.h"
 
 #define UART_ID uart0
 #define BAUD_RATE 1000000
@@ -21,5 +23,6 @@ void product_exist();
 void reiniciarCuenta();
 uint16_t *getCuenta();
 uint16_t getPrecio();
+bool new_product();
 
 #endif
