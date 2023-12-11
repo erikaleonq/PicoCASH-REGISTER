@@ -39,6 +39,20 @@ DatosFlotantes i2c_read_struct( uint8_t address, uint16_t offset) {
     return datos;
 }
 
+int read_position(uint8_t address, uint16_t offset)
+{
+    int data;
+    uint8_t buffer[sizeof(int)];
+    i2c_write_blocking(i2c, EEPROM_ADDR, (uint8_t *)&offset, 2, true);
+    i2c_read_blocking(i2c, EEPROM_ADDR, buffer, sizeof(int), false);
+    memcpy(&data, buffer, sizeof(int));
+    return data;
+}
 
-
-
+void write_Position(int pos, uint16_t mem_pos) {
+    uint8_t buffer[sizeof(int) + 2];
+    memcpy(buffer, &mem_pos, 2);
+    memcpy(buffer + 2, &pos, sizeof(int));
+    i2c_write_blocking(i2c, EEPROM_ADDR, buffer, sizeof(int) + 2, false);
+    sleep_ms(10);
+}

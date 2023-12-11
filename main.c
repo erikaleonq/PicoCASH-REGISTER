@@ -16,6 +16,7 @@ int main() {
     LCDInit();
     LCDconfig();
 
+    write_Position(2, 4000);
     char key;
     bool *newKey;
     bool isUser = false, isAdmin, printMenu = true, keyIsNum;    
@@ -45,7 +46,6 @@ int main() {
                 resetValidation();
                 *newKey = false;
             } else if (!isUser && key == 'A') {
-                //printf("Ent ACEPTAR")
                 isUser = confirmUser(&isAdmin);
                 ChgLine();
                 WriteStr("ENT para Aceptar.", 16);
@@ -54,14 +54,19 @@ int main() {
 
             if(isAdmin && isUser) {
                 if(printMenu == true) {
-                    writeInfo("** BIENVENIDO **", 16, "*ADMINISTRADOR* ", 16);
+                    writeInfo("BIENVENIDO ADMIN", 16, "1: AGREGA PRODUC ", 16);
                     printf("Presione 1 para agregar productos\n"); //BIENVENIDO ADMINISTRADOR
                     printMenu = false;
                 }
 
                 if(*newKey && keyIsNum) {
                     if(key == '1') {
-                        //new_product();
+                        writeInfo("     LECTOR", 11, "    ACTIVADO", 12);
+                        *newKey = false;
+                        if (!new_product()) {
+                            printMenu = true;
+                        *newKey = true;
+                        }
                     }
                 }
 
