@@ -1,3 +1,39 @@
+ /**
+ * @mainpage Descripción del proyecto
+ *  
+ * Esta documentación corresponde al código fuente del proyecto picoCA$H. Esta aplicación gestiona diversas
+ * funcionalidades, admite sesiones de usuario y administrador, permitiendo la creación, modificación y el 
+ * reconocimiento de productos para la gestión de ventas, por medio de la interacción con un teclado y una 
+ * pantalla LCD, se utiliza también un lector RFID y una memoria EEPROM mediante comunicación UART e I2C 
+ * respectivamente.
+ * 
+ * La ejecución del programa comienza con la inicialización de los dispositivos de entrada/salida. A lo largo
+ *  de la ejecución, se espera la interacción del usuario a través del teclado, donde se distingue entre 
+ * vendedores y administradores. Los administradores tienen acceso a opciones específicas, como la adición y 
+ * modificación de productos, mientras que los vendedores tienen funciones específicas como iniciar ventas.
+ * 
+ * El código maneja la validación de usuarios, mostrando mensajes en la pantalla LCD y realizando acciones 
+ * correspondientes según las teclas presionadas. La aplicación está diseñada para funcionar en un bucle 
+ * continuo, donde se espera la interacción del usuario y entra en un estado de espera entre interacciones.  
+ * 
+ *  Nuestro código fue desarrollado de manera modular y separado según su proposito en los siguientes archivos:
+ *      - keyboard.c
+ *      - LCD.c
+ *      - main.c
+ *      - memoria.c
+ *      - receptor.c
+ *      - salesMgent.c
+ *      - userValidation.c 
+ * 
+ *
+ *  Este programa fue desarrollado por: Erika Dayana León Quiroga.
+ *                                      Juan Pablo Sepúlveda Sánchez.
+ *                                      Esteban Rodríguez Ordoñez
+ *
+ *                                     Facultad de ingenierí­a - Ingenierí­a Electrónica.
+ *                                     Universidad de Antioquia.
+ **/
+
 /**
  * @file main.c
  * @brief Este es el archivo principal para una aplicación picoCA$H.

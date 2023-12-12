@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PICOCA$H: Referencia del archivo receptor.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="Imagen4.jpg"/></td>
+  <td id="projectalign">
+   <div id="projectname">PICOCA$H
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo receptor.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Funciones para el manejo de un receptor UART y operaciones relacionadas con la memoria EEPROM e I2C.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &quot;receptor.h&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:aff80e6d974b29f4bcfaf5d0420722f31" id="r_aff80e6d974b29f4bcfaf5d0420722f31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="receptor_8c.html#aff80e6d974b29f4bcfaf5d0420722f31">clear_uart_buffer</a> (uart_inst_t *uart)</td></tr>
+<tr class="memdesc:aff80e6d974b29f4bcfaf5d0420722f31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Limpia el búfer de la UART.  <br /></td></tr>
+<tr class="separator:aff80e6d974b29f4bcfaf5d0420722f31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c8ab9435f095e55019fe880192c3537" id="r_a7c8ab9435f095e55019fe880192c3537"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="receptor_8c.html#a7c8ab9435f095e55019fe880192c3537">init_uart</a> ()</td></tr>
+<tr class="memdesc:a7c8ab9435f095e55019fe880192c3537"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa la configuración de la UART.  <br /></td></tr>
+<tr class="separator:a7c8ab9435f095e55019fe880192c3537"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b5db535fa62d837b9595d0e35885cef" id="r_a7b5db535fa62d837b9595d0e35885cef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="receptor_8c.html#a7b5db535fa62d837b9595d0e35885cef">recive_tag</a> ()</td></tr>
+<tr class="memdesc:a7b5db535fa62d837b9595d0e35885cef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recibe una etiqueta mediante la UART y convierte el valor a un formato utilizable.  <br /></td></tr>
+<tr class="separator:a7b5db535fa62d837b9595d0e35885cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9e9646b59901ec5626aa41d61a1db59" id="r_ab9e9646b59901ec5626aa41d61a1db59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="receptor_8c.html#ab9e9646b59901ec5626aa41d61a1db59">product_exist</a> ()</td></tr>
+<tr class="memdesc:ab9e9646b59901ec5626aa41d61a1db59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica si un producto ya existe y realiza operaciones correspondientes.  <br /></td></tr>
+<tr class="separator:ab9e9646b59901ec5626aa41d61a1db59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc8dd2eb120c53ff2fa7a0aacb0ebfed" id="r_afc8dd2eb120c53ff2fa7a0aacb0ebfed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="receptor_8c.html#afc8dd2eb120c53ff2fa7a0aacb0ebfed">new_product</a> ()</td></tr>
+<tr class="memdesc:afc8dd2eb120c53ff2fa7a0aacb0ebfed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica si un nuevo producto será añadido y realiza operaciones correspondientes.  <br /></td></tr>
+<tr class="separator:afc8dd2eb120c53ff2fa7a0aacb0ebfed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd48b7c2285081090d7e3887b53baf57" id="r_abd48b7c2285081090d7e3887b53baf57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="receptor_8c.html#abd48b7c2285081090d7e3887b53baf57">reiniciarCuenta</a> ()</td></tr>
+<tr class="memdesc:abd48b7c2285081090d7e3887b53baf57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reinicia la cuenta acumulada de precios.  <br /></td></tr>
+<tr class="separator:abd48b7c2285081090d7e3887b53baf57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8dd7c7e08eaf93f74ac2fd98635c23f" id="r_ae8dd7c7e08eaf93f74ac2fd98635c23f"><td class="memItemLeft" align="right" valign="top">uint16_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="receptor_8c.html#ae8dd7c7e08eaf93f74ac2fd98635c23f">getCuenta</a> ()</td></tr>
+<tr class="memdesc:ae8dd7c7e08eaf93f74ac2fd98635c23f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene el puntero a la cuenta acumulada de precios.  <br /></td></tr>
+<tr class="separator:ae8dd7c7e08eaf93f74ac2fd98635c23f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a526cb96ff8ac440d6d01cb6da9dc35d0" id="r_a526cb96ff8ac440d6d01cb6da9dc35d0"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="receptor_8c.html#a526cb96ff8ac440d6d01cb6da9dc35d0">getPrecio</a> ()</td></tr>
+<tr class="memdesc:a526cb96ff8ac440d6d01cb6da9dc35d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene el precio del producto actual.  <br /></td></tr>
+<tr class="separator:a526cb96ff8ac440d6d01cb6da9dc35d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a8182e7c4c5e3253297848a50b522bed2" id="r_a8182e7c4c5e3253297848a50b522bed2"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="receptor_8c.html#a8182e7c4c5e3253297848a50b522bed2">received_message</a> [5]</td></tr>
+<tr class="separator:a8182e7c4c5e3253297848a50b522bed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51de455dba99797359cf6888996a0474" id="r_a51de455dba99797359cf6888996a0474"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="receptor_8c.html#a51de455dba99797359cf6888996a0474">received_message_length</a> = 0</td></tr>
+<tr class="separator:a51de455dba99797359cf6888996a0474"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4288f6e96d69f7b98fb128f06ba4d9d" id="r_ab4288f6e96d69f7b98fb128f06ba4d9d"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="receptor_8c.html#ab4288f6e96d69f7b98fb128f06ba4d9d">converted_value</a> = 0</td></tr>
+<tr class="separator:ab4288f6e96d69f7b98fb128f06ba4d9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f5d8a32ee6f9cd95a2642f7a0f692b0" id="r_a2f5d8a32ee6f9cd95a2642f7a0f692b0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="receptor_8c.html#a2f5d8a32ee6f9cd95a2642f7a0f692b0">tag_detected</a> = false</td></tr>
+<tr class="separator:a2f5d8a32ee6f9cd95a2642f7a0f692b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e59d68d82ea59108e99b8e74a46d012" id="r_a9e59d68d82ea59108e99b8e74a46d012"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="receptor_8c.html#a9e59d68d82ea59108e99b8e74a46d012">cuenta</a> = 0</td></tr>
+<tr class="separator:a9e59d68d82ea59108e99b8e74a46d012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51c33cd4e1da833bede84ec29c87ab6c" id="r_a51c33cd4e1da833bede84ec29c87ab6c"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="receptor_8c.html#a51c33cd4e1da833bede84ec29c87ab6c">precio</a> = 0</td></tr>
+<tr class="separator:a51c33cd4e1da833bede84ec29c87ab6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37cbb1bcd809edb2ef500932d96c5645" id="r_a37cbb1bcd809edb2ef500932d96c5645"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="receptor_8c.html#a37cbb1bcd809edb2ef500932d96c5645">new_cant</a> = 0</td></tr>
+<tr class="separator:a37cbb1bcd809edb2ef500932d96c5645"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ab1904cd499a57d632721f3ae7fc05f" id="r_a7ab1904cd499a57d632721f3ae7fc05f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="receptor_8c.html#a7ab1904cd499a57d632721f3ae7fc05f">cant_products</a></td></tr>
+<tr class="separator:a7ab1904cd499a57d632721f3ae7fc05f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Funciones para el manejo de un receptor UART y operaciones relacionadas con la memoria EEPROM e I2C. </p>
+</div><h2 class="groupheader">Documentación de funciones</h2>
+<a id="aff80e6d974b29f4bcfaf5d0420722f31" name="aff80e6d974b29f4bcfaf5d0420722f31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff80e6d974b29f4bcfaf5d0420722f31">&#9670;&#160;</a></span>clear_uart_buffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clear_uart_buffer </td>
+          <td>(</td>
+          <td class="paramtype">uart_inst_t *&#160;</td>
+          <td class="paramname"><em>uart</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Limpia el búfer de la UART. </p>
+<p>Esta función lee y descarta los caracteres presentes en el búfer de la UART.</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">uart</td><td>Instancia de la UART. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae8dd7c7e08eaf93f74ac2fd98635c23f" name="ae8dd7c7e08eaf93f74ac2fd98635c23f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8dd7c7e08eaf93f74ac2fd98635c23f">&#9670;&#160;</a></span>getCuenta()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t * getCuenta </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtiene el puntero a la cuenta acumulada de precios. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>Puntero a la variable <code>cuenta</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a526cb96ff8ac440d6d01cb6da9dc35d0" name="a526cb96ff8ac440d6d01cb6da9dc35d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a526cb96ff8ac440d6d01cb6da9dc35d0">&#9670;&#160;</a></span>getPrecio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t getPrecio </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtiene el precio del producto actual. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>Valor del precio del producto. </dd></dl>
+
+</div>
+</div>
+<a id="a7c8ab9435f095e55019fe880192c3537" name="a7c8ab9435f095e55019fe880192c3537"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c8ab9435f095e55019fe880192c3537">&#9670;&#160;</a></span>init_uart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_uart </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicializa la configuración de la UART. </p>
+<p>Esta función configura la UART con el baud rate especificado y establece el pin RX para la entrada UART. </p>
+
+</div>
+</div>
+<a id="afc8dd2eb120c53ff2fa7a0aacb0ebfed" name="afc8dd2eb120c53ff2fa7a0aacb0ebfed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc8dd2eb120c53ff2fa7a0aacb0ebfed">&#9670;&#160;</a></span>new_product()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool new_product </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica si un nuevo producto será añadido y realiza operaciones correspondientes. </p>
+<p>Esta función verifica si un nuevo producto será añadido a la memoria EEPROM y realiza las operaciones correspondientes, como solicitar al usuario ingresar el precio y la cantidad.</p>
+<dl class="section return"><dt>Devuelve</dt><dd>Devuelve <code>true</code> si se ha añadido un nuevo producto, de lo contrario, devuelve <code>false</code>. </dd></dl>
+
+</div>
+</div>
+<a id="ab9e9646b59901ec5626aa41d61a1db59" name="ab9e9646b59901ec5626aa41d61a1db59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9e9646b59901ec5626aa41d61a1db59">&#9670;&#160;</a></span>product_exist()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void product_exist </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica si un producto ya existe y realiza operaciones correspondientes. </p>
+<p>Esta función verifica si un producto ya existe en la memoria EEPROM y realiza las operaciones correspondientes, como decrementar la cantidad y actualizar el precio acumulado. </p>
+
+</div>
+</div>
+<a id="a7b5db535fa62d837b9595d0e35885cef" name="a7b5db535fa62d837b9595d0e35885cef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b5db535fa62d837b9595d0e35885cef">&#9670;&#160;</a></span>recive_tag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void recive_tag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Recibe una etiqueta mediante la UART y convierte el valor a un formato utilizable. </p>
+<p>Esta función lee caracteres de la UART hasta que se completa una etiqueta. Luego, convierte el valor a un formato utilizable. </p>
+
+</div>
+</div>
+<a id="abd48b7c2285081090d7e3887b53baf57" name="abd48b7c2285081090d7e3887b53baf57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd48b7c2285081090d7e3887b53baf57">&#9670;&#160;</a></span>reiniciarCuenta()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void reiniciarCuenta </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reinicia la cuenta acumulada de precios. </p>
+<p>Esta función reinicia la variable <code>cuenta</code> que almacena la suma acumulada de precios de productos. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de variables</h2>
+<a id="a7ab1904cd499a57d632721f3ae7fc05f" name="a7ab1904cd499a57d632721f3ae7fc05f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ab1904cd499a57d632721f3ae7fc05f">&#9670;&#160;</a></span>cant_products</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cant_products</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Cantidad total de productos almacenados en la memoria EEPROM. </p>
+
+</div>
+</div>
+<a id="ab4288f6e96d69f7b98fb128f06ba4d9d" name="ab4288f6e96d69f7b98fb128f06ba4d9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4288f6e96d69f7b98fb128f06ba4d9d">&#9670;&#160;</a></span>converted_value</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t converted_value = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Valor convertido del mensaje recibido. </p>
+
+</div>
+</div>
+<a id="a9e59d68d82ea59108e99b8e74a46d012" name="a9e59d68d82ea59108e99b8e74a46d012"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e59d68d82ea59108e99b8e74a46d012">&#9670;&#160;</a></span>cuenta</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t cuenta = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Cuenta acumulada de precios de productos. </p>
+
+</div>
+</div>
+<a id="a37cbb1bcd809edb2ef500932d96c5645" name="a37cbb1bcd809edb2ef500932d96c5645"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37cbb1bcd809edb2ef500932d96c5645">&#9670;&#160;</a></span>new_cant</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t new_cant = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Nueva cantidad de productos. </p>
+
+</div>
+</div>
+<a id="a51c33cd4e1da833bede84ec29c87ab6c" name="a51c33cd4e1da833bede84ec29c87ab6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51c33cd4e1da833bede84ec29c87ab6c">&#9670;&#160;</a></span>precio</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t precio = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Precio del producto actual. </p>
+
+</div>
+</div>
+<a id="a8182e7c4c5e3253297848a50b522bed2" name="a8182e7c4c5e3253297848a50b522bed2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8182e7c4c5e3253297848a50b522bed2">&#9670;&#160;</a></span>received_message</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char received_message[5]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Almacena los caracteres recibidos por UART. </p>
+
+</div>
+</div>
+<a id="a51de455dba99797359cf6888996a0474" name="a51de455dba99797359cf6888996a0474"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51de455dba99797359cf6888996a0474">&#9670;&#160;</a></span>received_message_length</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int received_message_length = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Longitud del mensaje recibido por UART. </p>
+
+</div>
+</div>
+<a id="a2f5d8a32ee6f9cd95a2642f7a0f692b0" name="a2f5d8a32ee6f9cd95a2642f7a0f692b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f5d8a32ee6f9cd95a2642f7a0f692b0">&#9670;&#160;</a></span>tag_detected</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tag_detected = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Indica si se ha detectado una etiqueta mediante el receptor UART. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

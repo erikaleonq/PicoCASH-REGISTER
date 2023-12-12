@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PICOCA$H: Referencia del archivo userValidation.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="Imagen4.jpg"/></td>
+  <td id="projectalign">
+   <div id="projectname">PICOCA$H
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo userValidation.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Funciones relacionadas con la validación de usuarios y contraseñas.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &quot;userValidation.h&quot;</code><br />
+<code>#include &quot;Data.h&quot;</code><br />
+<code>#include &quot;LCD.h&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:aac75c5eae8b2a8bb536b1ae82f35fd30" id="r_aac75c5eae8b2a8bb536b1ae82f35fd30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user_validation_8c.html#aac75c5eae8b2a8bb536b1ae82f35fd30">concatenarCaracter</a> (char key, char *cadena, char *tipo, int *count)</td></tr>
+<tr class="memdesc:aac75c5eae8b2a8bb536b1ae82f35fd30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatena un carácter a una cadena y muestra el progreso en la pantalla LCD.  <br /></td></tr>
+<tr class="separator:aac75c5eae8b2a8bb536b1ae82f35fd30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf2b703b5df2159d96cb303e0451f189" id="r_adf2b703b5df2159d96cb303e0451f189"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user_validation_8c.html#adf2b703b5df2159d96cb303e0451f189">confirmUser</a> (bool *isAdmin)</td></tr>
+<tr class="memdesc:adf2b703b5df2159d96cb303e0451f189"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica la validez del usuario y la contraseña ingresados.  <br /></td></tr>
+<tr class="separator:adf2b703b5df2159d96cb303e0451f189"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a751b51321f4bd27d86eb4367d3e5b857" id="r_a751b51321f4bd27d86eb4367d3e5b857"><td class="memItemLeft" align="right" valign="top"><a id="a751b51321f4bd27d86eb4367d3e5b857" name="a751b51321f4bd27d86eb4367d3e5b857"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>resetValidation</b> ()</td></tr>
+<tr class="memdesc:a751b51321f4bd27d86eb4367d3e5b857"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reinicia las variables de validación de usuario. <br /></td></tr>
+<tr class="separator:a751b51321f4bd27d86eb4367d3e5b857"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a891c3cea20a16150724ea33d9465aa9d" id="r_a891c3cea20a16150724ea33d9465aa9d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user_validation_8c.html#a891c3cea20a16150724ea33d9465aa9d">isValidUser</a> (char key, bool *isAdmin)</td></tr>
+<tr class="memdesc:a891c3cea20a16150724ea33d9465aa9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica y almacena los caracteres ingresados como ID de usuario y contraseña.  <br /></td></tr>
+<tr class="separator:a891c3cea20a16150724ea33d9465aa9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a91371a53c35f469d4e6d414c1f3f2c63" id="r_a91371a53c35f469d4e6d414c1f3f2c63"><td class="memItemLeft" align="right" valign="top"><a id="a91371a53c35f469d4e6d414c1f3f2c63" name="a91371a53c35f469d4e6d414c1f3f2c63"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>user</b> [LENUSER] = &quot;&quot;</td></tr>
+<tr class="separator:a91371a53c35f469d4e6d414c1f3f2c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0141ef1dc5226f6b118e0155ae66765d" id="r_a0141ef1dc5226f6b118e0155ae66765d"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user_validation_8c.html#a0141ef1dc5226f6b118e0155ae66765d">password</a> [LENPWD] = &quot;&quot;</td></tr>
+<tr class="separator:a0141ef1dc5226f6b118e0155ae66765d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af98754936abed91a89eb61b5b35abeb3" id="r_af98754936abed91a89eb61b5b35abeb3"><td class="memItemLeft" align="right" valign="top"><a id="af98754936abed91a89eb61b5b35abeb3" name="af98754936abed91a89eb61b5b35abeb3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>count_u</b> = 0</td></tr>
+<tr class="separator:af98754936abed91a89eb61b5b35abeb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a737bc139d7466af80756ba7c5db151cf" id="r_a737bc139d7466af80756ba7c5db151cf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user_validation_8c.html#a737bc139d7466af80756ba7c5db151cf">count_p</a> = 0</td></tr>
+<tr class="separator:a737bc139d7466af80756ba7c5db151cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4571e3ffaa4a9f935073baee3b8de849" id="r_a4571e3ffaa4a9f935073baee3b8de849"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user_validation_8c.html#a4571e3ffaa4a9f935073baee3b8de849">inputUser</a> = true</td></tr>
+<tr class="separator:a4571e3ffaa4a9f935073baee3b8de849"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Funciones relacionadas con la validación de usuarios y contraseñas. </p>
+</div><h2 class="groupheader">Documentación de funciones</h2>
+<a id="aac75c5eae8b2a8bb536b1ae82f35fd30" name="aac75c5eae8b2a8bb536b1ae82f35fd30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac75c5eae8b2a8bb536b1ae82f35fd30">&#9670;&#160;</a></span>concatenarCaracter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void concatenarCaracter </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>cadena</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>tipo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Concatena un carácter a una cadena y muestra el progreso en la pantalla LCD. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>Carácter a concatenar. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">cadena</td><td>Cadena a la que se le añadirá el carácter. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tipo</td><td>Tipo de cadena (ID o PSW). </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">count</td><td>Contador de caracteres en la cadena. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adf2b703b5df2159d96cb303e0451f189" name="adf2b703b5df2159d96cb303e0451f189"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf2b703b5df2159d96cb303e0451f189">&#9670;&#160;</a></span>confirmUser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int confirmUser </td>
+          <td>(</td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>isAdmin</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica la validez del usuario y la contraseña ingresados. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">isAdmin</td><td>Puntero a una variable que indicará si el usuario es administrador. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>true si el usuario y la contraseña son válidos, false de lo contrario. </dd></dl>
+
+</div>
+</div>
+<a id="a891c3cea20a16150724ea33d9465aa9d" name="a891c3cea20a16150724ea33d9465aa9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a891c3cea20a16150724ea33d9465aa9d">&#9670;&#160;</a></span>isValidUser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isValidUser </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>isAdmin</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica y almacena los caracteres ingresados como ID de usuario y contraseña. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>Carácter ingresado por el usuario. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">isAdmin</td><td>Puntero a una variable que indicará si el usuario es administrador. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>false. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de variables</h2>
+<a id="a737bc139d7466af80756ba7c5db151cf" name="a737bc139d7466af80756ba7c5db151cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a737bc139d7466af80756ba7c5db151cf">&#9670;&#160;</a></span>count_p</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int count_p = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Contador para el ID del usuario. Contador para la contraseña. </p>
+
+</div>
+</div>
+<a id="a4571e3ffaa4a9f935073baee3b8de849" name="a4571e3ffaa4a9f935073baee3b8de849"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4571e3ffaa4a9f935073baee3b8de849">&#9670;&#160;</a></span>inputUser</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool inputUser = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Indica si se está ingresando el ID del usuario o la contraseña. </p>
+
+</div>
+</div>
+<a id="a0141ef1dc5226f6b118e0155ae66765d" name="a0141ef1dc5226f6b118e0155ae66765d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0141ef1dc5226f6b118e0155ae66765d">&#9670;&#160;</a></span>password</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char password[LENPWD] = &quot;&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Almacena temporalmente el ID del usuario ingresado. Almacena temporalmente la contraseña ingresada. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

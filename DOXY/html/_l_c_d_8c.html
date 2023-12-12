@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PICOCA$H: Referencia del archivo LCD.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="Imagen4.jpg"/></td>
+  <td id="projectalign">
+   <div id="projectname">PICOCA$H
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo LCD.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Este archivo contiene funciones relacionadas con el control de una pantalla LCD. Incluye funciones para inicializar los pines de la pantalla LCD, configurarla con comandos específicos, enviar datos a la pantalla y realizar operaciones como cambiar de línea y limpiar la pantalla.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &quot;LCD.h&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:af1be3e8e2002fc3122aad420927d1378" id="r_af1be3e8e2002fc3122aad420927d1378"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_c_d_8c.html#af1be3e8e2002fc3122aad420927d1378">LCDInit</a> ()</td></tr>
+<tr class="memdesc:af1be3e8e2002fc3122aad420927d1378"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa los pines de la pantalla LCD.  <br /></td></tr>
+<tr class="separator:af1be3e8e2002fc3122aad420927d1378"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a608d5df1fe006ef7cf29d3bf175e3879" id="r_a608d5df1fe006ef7cf29d3bf175e3879"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_c_d_8c.html#a608d5df1fe006ef7cf29d3bf175e3879">LCDconfig</a> ()</td></tr>
+<tr class="memdesc:a608d5df1fe006ef7cf29d3bf175e3879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configura la pantalla LCD.  <br /></td></tr>
+<tr class="separator:a608d5df1fe006ef7cf29d3bf175e3879"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1d84ec2a8905abfa987ceb7c39d033e" id="r_af1d84ec2a8905abfa987ceb7c39d033e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_c_d_8c.html#af1d84ec2a8905abfa987ceb7c39d033e">PulseEnable</a> ()</td></tr>
+<tr class="memdesc:af1d84ec2a8905abfa987ceb7c39d033e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera un pulso en el pin ENABLE.  <br /></td></tr>
+<tr class="separator:af1d84ec2a8905abfa987ceb7c39d033e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1c1008da19d0bd7047a6045504c3cb3" id="r_ac1c1008da19d0bd7047a6045504c3cb3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_c_d_8c.html#ac1c1008da19d0bd7047a6045504c3cb3">Write4Bits</a> (uint8_t data, int isLSB, int isData)</td></tr>
+<tr class="memdesc:ac1c1008da19d0bd7047a6045504c3cb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escribe 4 bits de datos en la pantalla LCD.  <br /></td></tr>
+<tr class="separator:ac1c1008da19d0bd7047a6045504c3cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a940aea0342a8387a8c71562d0cafe028" id="r_a940aea0342a8387a8c71562d0cafe028"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_c_d_8c.html#a940aea0342a8387a8c71562d0cafe028">ChgLine</a> ()</td></tr>
+<tr class="memdesc:a940aea0342a8387a8c71562d0cafe028"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cambia de línea en la pantalla LCD.  <br /></td></tr>
+<tr class="separator:a940aea0342a8387a8c71562d0cafe028"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a3ca153f0817e8ba91a023b886bb662" id="r_a6a3ca153f0817e8ba91a023b886bb662"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_c_d_8c.html#a6a3ca153f0817e8ba91a023b886bb662">ClearScreen</a> ()</td></tr>
+<tr class="memdesc:a6a3ca153f0817e8ba91a023b886bb662"><td class="mdescLeft">&#160;</td><td class="mdescRight">Limpia la pantalla LCD.  <br /></td></tr>
+<tr class="separator:a6a3ca153f0817e8ba91a023b886bb662"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e770510ce2e0b873bfabcc34dd9ee20" id="r_a2e770510ce2e0b873bfabcc34dd9ee20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_c_d_8c.html#a2e770510ce2e0b873bfabcc34dd9ee20">WriteStr</a> (char(*array), int len)</td></tr>
+<tr class="memdesc:a2e770510ce2e0b873bfabcc34dd9ee20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escribe una cadena de caracteres en la pantalla LCD.  <br /></td></tr>
+<tr class="separator:a2e770510ce2e0b873bfabcc34dd9ee20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22c51b42c8081edae640cfaacd765fce" id="r_a22c51b42c8081edae640cfaacd765fce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_c_d_8c.html#a22c51b42c8081edae640cfaacd765fce">WriteInt</a> (int value)</td></tr>
+<tr class="memdesc:a22c51b42c8081edae640cfaacd765fce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escribe un número entero en la pantalla LCD.  <br /></td></tr>
+<tr class="separator:a22c51b42c8081edae640cfaacd765fce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb1bf0cb449fbac41786d7431aecb0f2" id="r_aeb1bf0cb449fbac41786d7431aecb0f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_c_d_8c.html#aeb1bf0cb449fbac41786d7431aecb0f2">writeInfo</a> (char *info1, int len1, char *info2, int len2)</td></tr>
+<tr class="memdesc:aeb1bf0cb449fbac41786d7431aecb0f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escribe información en la pantalla LCD.  <br /></td></tr>
+<tr class="separator:aeb1bf0cb449fbac41786d7431aecb0f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97fbca78fc943ff07b38dba5f62679d9" id="r_a97fbca78fc943ff07b38dba5f62679d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_c_d_8c.html#a97fbca78fc943ff07b38dba5f62679d9">displayProd</a> (int ID, int valor)</td></tr>
+<tr class="memdesc:a97fbca78fc943ff07b38dba5f62679d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Muestra información de un producto en la pantalla LCD.  <br /></td></tr>
+<tr class="separator:a97fbca78fc943ff07b38dba5f62679d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Este archivo contiene funciones relacionadas con el control de una pantalla LCD. Incluye funciones para inicializar los pines de la pantalla LCD, configurarla con comandos específicos, enviar datos a la pantalla y realizar operaciones como cambiar de línea y limpiar la pantalla. </p>
+</div><h2 class="groupheader">Documentación de funciones</h2>
+<a id="a940aea0342a8387a8c71562d0cafe028" name="a940aea0342a8387a8c71562d0cafe028"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a940aea0342a8387a8c71562d0cafe028">&#9670;&#160;</a></span>ChgLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ChgLine </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cambia de línea en la pantalla LCD. </p>
+<p>Esta función cambia de línea en la pantalla LCD. </p>
+
+</div>
+</div>
+<a id="a6a3ca153f0817e8ba91a023b886bb662" name="a6a3ca153f0817e8ba91a023b886bb662"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a3ca153f0817e8ba91a023b886bb662">&#9670;&#160;</a></span>ClearScreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ClearScreen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Limpia la pantalla LCD. </p>
+<p>Esta función limpia la pantalla LCD. </p>
+
+</div>
+</div>
+<a id="a97fbca78fc943ff07b38dba5f62679d9" name="a97fbca78fc943ff07b38dba5f62679d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97fbca78fc943ff07b38dba5f62679d9">&#9670;&#160;</a></span>displayProd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void displayProd </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>valor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Muestra información de un producto en la pantalla LCD. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ID</td><td>Identificador del producto. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">valor</td><td>Valor del producto.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Esta función borra la pantalla, escribe "REF:" seguido del ID del producto, luego escribe " $" y finalmente escribe el valor del producto multiplicado por 100. </p>
+
+</div>
+</div>
+<a id="a608d5df1fe006ef7cf29d3bf175e3879" name="a608d5df1fe006ef7cf29d3bf175e3879"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a608d5df1fe006ef7cf29d3bf175e3879">&#9670;&#160;</a></span>LCDconfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LCDconfig </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configura la pantalla LCD. </p>
+<p>Esta función configura la pantalla LCD con los comandos iniciales necesarios. </p>
+
+</div>
+</div>
+<a id="af1be3e8e2002fc3122aad420927d1378" name="af1be3e8e2002fc3122aad420927d1378"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1be3e8e2002fc3122aad420927d1378">&#9670;&#160;</a></span>LCDInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LCDInit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicializa los pines de la pantalla LCD. </p>
+<pre class="fragment">                  GPIO      MASK
+</pre><p> Pin D4. 9 0x00000200 Pin D5. 10 0x00000400 Pin D6. 11 0x00000800 Pin D7. 12 0x00001000 Pin RS. 13 0x00002000 Pin ENABLE. 14 0x00004000</p>
+<p>Esta función inicializa los pines configurados previamente para la pantalla LCD. </p>
+
+</div>
+</div>
+<a id="af1d84ec2a8905abfa987ceb7c39d033e" name="af1d84ec2a8905abfa987ceb7c39d033e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1d84ec2a8905abfa987ceb7c39d033e">&#9670;&#160;</a></span>PulseEnable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PulseEnable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Genera un pulso en el pin ENABLE. </p>
+<p>Esta función genera un pulso en el pin ENABLE para enviar datos a la pantalla LCD. </p>
+
+</div>
+</div>
+<a id="ac1c1008da19d0bd7047a6045504c3cb3" name="ac1c1008da19d0bd7047a6045504c3cb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1c1008da19d0bd7047a6045504c3cb3">&#9670;&#160;</a></span>Write4Bits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Write4Bits </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>isLSB</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>isData</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Escribe 4 bits de datos en la pantalla LCD. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>Datos a escribir. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">isLSB</td><td>Indica si se trata del byte menos significativo. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">isData</td><td>Indica si los datos son comandos o datos de pantalla.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Esta función escribe 4 bits de datos en la pantalla LCD. </p>
+
+</div>
+</div>
+<a id="aeb1bf0cb449fbac41786d7431aecb0f2" name="aeb1bf0cb449fbac41786d7431aecb0f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb1bf0cb449fbac41786d7431aecb0f2">&#9670;&#160;</a></span>writeInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void writeInfo </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>info1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>info2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Escribe información en la pantalla LCD. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">info1</td><td>Puntero a la primera cadena de caracteres a escribir. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len1</td><td>Longitud de la primera cadena. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">info2</td><td>Puntero a la segunda cadena de caracteres a escribir. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len2</td><td>Longitud de la segunda cadena.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Esta función borra la pantalla, escribe la primera cadena seguida de un cambio de línea y luego escribe la segunda cadena en la siguiente línea. </p>
+
+</div>
+</div>
+<a id="a22c51b42c8081edae640cfaacd765fce" name="a22c51b42c8081edae640cfaacd765fce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22c51b42c8081edae640cfaacd765fce">&#9670;&#160;</a></span>WriteInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WriteInt </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Escribe un número entero en la pantalla LCD. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>Número entero a escribir.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Esta función escribe un número entero en la pantalla LCD. </p>
+
+</div>
+</div>
+<a id="a2e770510ce2e0b873bfabcc34dd9ee20" name="a2e770510ce2e0b873bfabcc34dd9ee20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e770510ce2e0b873bfabcc34dd9ee20">&#9670;&#160;</a></span>WriteStr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WriteStr </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Escribe una cadena de caracteres en la pantalla LCD. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">array</td><td>Cadena de caracteres a escribir. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Longitud de la cadena.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Esta función escribe una cadena de caracteres en la pantalla LCD. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>
